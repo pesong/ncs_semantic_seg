@@ -114,7 +114,8 @@ class KittiSegDataLayer(caffe.Layer):
         idx_file = '{}/label_320_480/{}'.format(self.kitti_dir, idx)
 
         label = Image.open(idx_file)
-        label = np.array(label, dtype=np.int8)
+        label = np.array(label, dtype=np.uint8)
+        label = label[:, :, ::-1]
 
         label_road = np.all(label == [255, 0, 255], axis=2)
         label_bg = np.any(label != [255, 0, 255], axis=2)
@@ -122,7 +123,10 @@ class KittiSegDataLayer(caffe.Layer):
         label_all = np.dstack([label_bg, label_road])
         label_all = label_all.astype(np.float32)
         label_all = label_all.transpose((2, 0, 1))
-        return label_all
+        label_all = label_all[0]
+
+        label = label_all[np.newaxis, ...]
+        return label
 
 
 class SBDDSegDataLayer(caffe.Layer):
