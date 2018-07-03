@@ -1,3 +1,4 @@
+import cv2
 import sys
 sys.path.append('/opt/movidius/caffe/python')
 import caffe
@@ -8,7 +9,7 @@ import matplotlib.pyplot as plt
 
 import random
 
-class BDDSegDataLayer(caffe.Layer):
+class KittiSegDataLayer(caffe.Layer):
     """
     Load (input image, label image) pairs from PASCAL VOC
     one-at-a-time while reshaping the net to preserve dimensions.
@@ -31,7 +32,7 @@ class BDDSegDataLayer(caffe.Layer):
         """
         # config
         params = eval(self.param_str)
-        self.bdd_dir = params['bdd_dir']
+        self.kitti_dir = params['kitti_dir']
         self.split = params['split']
         self.mean = np.array(params['mean'])
         self.random = params.get('randomize', True)
@@ -45,7 +46,7 @@ class BDDSegDataLayer(caffe.Layer):
             raise Exception("Do not define a bottom.")
 
         # load indices for images and labels
-        split_f  = '{}/{}.txt'.format(self.bdd_dir,self.split)
+        split_f  = '{}/{}.txt'.format(self.kitti_dir, self.split)
         self.indices = open(split_f, 'r').read().splitlines()
         self.idx = 0
 
@@ -94,9 +95,9 @@ class BDDSegDataLayer(caffe.Layer):
         - subtract mean
         - transpose to channel x height x width order
         """
-        im = Image.open('{}/images/total_320_480/{}.jpg'.format(self.bdd_dir, idx))
+        im = Image.open('{}/train_320_480/{}'.format(self.kitti_dir, idx))
         in_ = np.array(im, dtype=np.float32)
-        in_ = in_[:,:,::-1]
+        in_ = in_[:, :, ::-1]
         in_ -= self.mean
         in_ = in_.transpose((2,0,1))
         return in_
@@ -107,16 +108,21 @@ class BDDSegDataLayer(caffe.Layer):
         Load label image as 1 x height x width integer array of label indices.
         The leading singleton dimension is required by the loss.
         """
-        im = Image.open('{}/gray_labels/total_320_480/{}_train_id.png'.format(self.bdd_dir, idx))
-        if (im.mode == 'RGB' or im.mode == 'RGBA'):
-            im_convt = im.convert('P')
-            # plt.imshow(im_convt)
-            # plt.show()
-            label = np.array(im_convt, dtype=np.uint8)
-        else:
-            label = np.array(im, dtype=np.uint8)
-        label = label[np.newaxis, ...]
-        return label
+        idx = idx.split('_')
+        idx.insert(1, '_road_')
+        idx = ''.join(idx)
+        idx_file = '{}/label_320_480/{}'.format(self.kitti_dir, idx)
+
+        label = Image.open(idx_file)
+        label = np.array(label, dtype=np.int8)
+
+        label_road = np.all(label == [255, 0, 255], axis=2)
+        label_bg = np.any(label != [255, 0, 255], axis=2)
+
+        label_all = np.dstack([label_bg, label_road])
+        label_all = label_all.astype(np.float32)
+        label_all = label_all.transpose((2, 0, 1))
+        return label_all
 
 
 class SBDDSegDataLayer(caffe.Layer):
