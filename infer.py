@@ -18,7 +18,7 @@ IMAGE_DIM = [320, 480]
 
 NET_PROTO = 'deploy.prototxt'
 # WEIGHTS = 'fcn-alexnet-pascal.caffemodel'
-WEIGHTS = 'snapshot/googlenet_8s_kitti/solver_iter_72000.caffemodel'
+WEIGHTS = 'snapshot/googlenet_8s_kitti/solver_iter_100000.caffemodel'
 # WEIGHTS = 'weight_pretrained/bvlc_googlenet.caffemodel'
 
 
@@ -79,8 +79,10 @@ net.blobs['data'].data[...] = image_t
 # ------------------infer-----------------------------
 # run net and take argmax for prediction
 net.forward()
-out = net.blobs['upscore8'].data[0]
+out = net.blobs['score'].data[0]
 out = out.argmax(axis=0)
+
+
 
 plt.imshow(out)
 plt.show()
@@ -91,5 +93,5 @@ out_im = Image.fromarray(vis.color_seg(out, voc_palette))
 iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
 out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')
 
-# masked_im = Image.fromarray(vis.vis_seg(im, out, voc_palette))
-# masked_im.save('demo_test/visualization.jpg')
+masked_im = Image.fromarray(vis.vis_seg(img, out, voc_palette))
+masked_im.save('demo_test/visualization.jpg')
