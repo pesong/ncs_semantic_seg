@@ -8,10 +8,10 @@ from PIL import Image
 #     file_name = str(file).rstrip('.jpg')
 #     train_list_file.write(file_name + '\n')
 
-path_name = '/media/pesong/e/dl_gaussian/data/bdd100k/seg/images/total_images/'
+path_name = '/media/pesong/e/dl_gaussian/data/camVid/camVid_ncs/testannot/'
 
 for file in os.listdir(path_name):
     file_path = path_name + str(file)
     with Image.open(file_path) as img:
         resized = img.resize((480, 320))
-        resized.save("/media/pesong/e/dl_gaussian/data/bdd100k/seg/images/total_320_480/" + str(file))
+        resized.save("/media/pesong/e/dl_gaussian/data/camVid/camVid_ncs/test_label_320_480/" + str(file))
