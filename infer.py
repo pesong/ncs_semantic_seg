@@ -9,7 +9,7 @@ from utils import vis
 
 # define parameters
 # [0ace96c3-48481887, 00ad8a92-c4851839, 1fa8aed6-2e4ce3dd]
-IMAGE_PATH = 'demo_test/kitti/um_000062.png'
+IMAGE_PATH = 'demo_test/gaussian/1.jpg'
 # IMAGE_PATH = 'demo_test/444282550.jpg'
 
 
@@ -18,7 +18,7 @@ IMAGE_DIM = [320, 480]
 
 NET_PROTO = 'deploy.prototxt'
 # WEIGHTS = 'fcn-alexnet-pascal.caffemodel'
-WEIGHTS = 'snapshot/googlenet_8s_kitti/solver_iter_100000.caffemodel'
+WEIGHTS = 'snapshot/googlenet_8s_cam/solver_iter_100000.caffemodel'
 # WEIGHTS = 'weight_pretrained/bvlc_googlenet.caffemodel'
 
 
@@ -88,7 +88,7 @@ plt.imshow(out)
 plt.show()
 
 # visualize segmentation in PASCAL VOC colors
-voc_palette = vis.make_palette(2)
+voc_palette = vis.make_palette(21)
 out_im = Image.fromarray(vis.color_seg(out, voc_palette))
 iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
 out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')

@@ -108,23 +108,10 @@ class CamSegDataLayer(caffe.Layer):
         Load label image as 1 x height x width integer array of label indices.
         The leading singleton dimension is required by the loss.
         """
-        idx_file = '{}/labels_320_480/{}'.format(self.cam_dir, idx)
-
-        label = Image.open(idx_file)
-        # label = label.convert('P')
-        label = np.array(label, dtype=np.uint8)
+        im = Image.open('{}/labels_320_480/{}'.format(self.cam_dir, idx))
+        label = np.array(im, dtype=np.uint8)
         # plt.imshow(label)
         # plt.show()
-        # label = label[:, :, ::-1]
-        #
-        # label_road = np.all(label == [255, 0, 255], axis=2)
-        # label_bg = np.any(label != [255, 0, 255], axis=2)
-        #
-        # label_all = np.dstack([label_bg, label_road])
-        # label_all = label_all.astype(np.float32)
-        # label_all = label_all.transpose((2, 0, 1))
-        # label_all = label_all[0]
-
         label = label[np.newaxis, ...]
         return label
 
