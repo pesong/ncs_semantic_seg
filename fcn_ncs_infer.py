@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 # input parameters
 IMAGE_MEAN = [104.00698793,116.66876762,122.67891434]
 
-GRAPH_PATH = 'test_graph.graph'
-IMAGE_PATH = 'demo_test/1.jpg'
+GRAPH_PATH = 'ncs_model/Inception_kitti.graph'
+IMAGE_PATH = 'demo_test/kitti/um_000062.png'
 IMAGE_DIM = [320, 480]
 
 # -----------------open the device and get a handle to it--------------------
@@ -53,15 +53,21 @@ graph.LoadTensor(image_t, 'user object')
 out = graph.GetResult()[0]
 
 #  flatten ---> image
-out = out.reshape(-1,21).T.reshape(21,320, -1)
+out = out.reshape(-1,2).T.reshape(2,320, -1)
+out = out.argmax(axis=0)
+# out = out[12:-12, 12:-12]
+print(out.shape)
 
-plt.imshow(out.argmax(axis=0))
-plt.show()
+# plt.imshow(out)
+# plt.show()
 
 # save result
-voc_palette = vis.make_palette(21)
-out_im = Image.fromarray(vis.color_seg(out.argmax(axis=0), voc_palette))
+voc_palette = vis.make_palette(2)
+out_im = Image.fromarray(vis.color_seg(out, voc_palette))
 iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
 out_im.save('demo_test/' + iamge_name + '_ncs_' + '.png')
+
+masked_im = Image.fromarray(vis.vis_seg(img_draw, out, voc_palette))
+masked_im.save('demo_test/visualization.jpg')
 
 
