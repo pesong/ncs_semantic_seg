@@ -125,7 +125,11 @@ class KittiSegDataLayer(caffe.Layer):
         label_all = label_all.transpose((2, 0, 1))
         label_all = label_all[0]
 
+        # plt.imshow(label_all)
+        # plt.show()
+
         label = label_all[np.newaxis, ...]
+
         return label
 
 
