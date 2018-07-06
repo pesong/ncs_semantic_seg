@@ -3499,14 +3499,3 @@ layer {
     stride: 8
   }
 }
-layer {
-  name: "score"
-  type: "Crop"
-  bottom: "upscore8"
-  bottom: "data"
-  top: "score"
-  crop_param {
-    axis: 2
-    offset: 0
-  }
-}

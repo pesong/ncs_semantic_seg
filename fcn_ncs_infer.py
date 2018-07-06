@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 # input parameters
 IMAGE_MEAN = [104.00698793,116.66876762,122.67891434]
 
-GRAPH_PATH = 'ncs_model/Inception_kitti.graph'
+GRAPH_PATH = 'ncs_model/mobilenetv2.graph'
 IMAGE_PATH = 'demo_test/kitti/um_000062.png'
 IMAGE_DIM = [320, 480]
 
@@ -53,13 +53,13 @@ graph.LoadTensor(image_t, 'user object')
 out = graph.GetResult()[0]
 
 #  flatten ---> image
-out = out.reshape(-1,2).T.reshape(2,320, -1)
+out = out.reshape(-1,2).T.reshape(2,344, -1)
 out = out.argmax(axis=0)
 # out = out[12:-12, 12:-12]
 # print(out)
 
-# plt.imshow(out)
-# plt.show()
+plt.imshow(out)
+plt.show()
 
 # save result
 voc_palette = vis.make_palette(2)
