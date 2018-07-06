@@ -11,7 +11,7 @@ base_lr: 1e-4
 # standard momentum
 momentum: 0.9
 # gradient accumulation
-iter_size: 20
+iter_size: 1
 max_iter: 100000
 weight_decay: 0.0005
 snapshot: 20

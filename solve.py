@@ -14,7 +14,7 @@ try:
 except:
     pass
 
-weights = 'weight_pretrained/bvlc_googlenet.caffemodel'
+weights = 'weight_pretrained/mobilenet_v2.caffemodel'
 
 # init
 caffe.set_device(0)
