@@ -58,8 +58,8 @@ out = out.argmax(axis=0)
 # out = out[12:-12, 12:-12]
 # print(out)
 
-# plt.imshow(out)
-# plt.show()
+plt.imshow(out)
+plt.show()
 
 # save result
 voc_palette = vis.make_palette(2)
