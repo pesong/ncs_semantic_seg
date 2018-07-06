@@ -56,7 +56,7 @@ out = graph.GetResult()[0]
 out = out.reshape(-1,2).T.reshape(2,320, -1)
 out = out.argmax(axis=0)
 # out = out[12:-12, 12:-12]
-print(out)
+# print(out)
 
 # plt.imshow(out)
 # plt.show()
