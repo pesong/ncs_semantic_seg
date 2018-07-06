@@ -71,7 +71,7 @@ layer {
   top: "conv1/bn"
 }
 layer {
-  name: "conv2_1/expand"cd
+  name: "conv2_1/expand"
   type: "Convolution"
   bottom: "conv1/bn"
   top: "conv2_1/expand"
@@ -3372,29 +3372,122 @@ layer {
 
 
 layer {
-  name: "score_fr"
+  name: "score_conv6_4"
   type: "Convolution"
   bottom: "conv6_4/bn"
-  top: "score_fr"
+  top: "score_conv6_4"
   param {
     lr_mult: 1
     decay_mult: 1
   }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
   convolution_param {
     num_output: 2
-    pad: 0
     kernel_size: 1
-    weight_filler {
-      type: "msra"
-    }
+  }
+}
+layer {
+  name: "upscore2"
+  type: "Deconvolution"
+  bottom: "score_conv6_4"
+  top: "upscore2"
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 2
+    bias_term: false
+    kernel_size: 4
+    stride: 2
+    pad: 1
   }
 }
 
 
 layer {
+  name: "score_block_5_2"
+  type: "Convolution"
+  bottom: "block_5_2"
+  top: "score_block_5_2"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 2
+    kernel_size: 1
+  }
+}
+layer {
+  name: "fuse_16"
+  type: "Eltwise"
+  bottom: "upscore2"
+  bottom: "score_block_5_2"
+  top: "fuse_16"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "upscore_block_5_2"
+  type: "Deconvolution"
+  bottom: "fuse_16"
+  top: "upscore_block_5_2"
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 2
+    bias_term: false
+    kernel_size: 4
+    stride: 2
+    pad: 1
+  }
+}
+
+
+
+
+layer {
+  name: "score_block_4_6"
+  type: "Convolution"
+  bottom: "block_4_6"
+  top: "score_block_4_6"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 2
+    kernel_size: 1
+  }
+}
+
+layer {
+  name: "fuse_8"
+  type: "Eltwise"
+  bottom: "upscore_block_5_2"
+  bottom: "score_block_4_6"
+  top: "fuse_8"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
   name: "upscore8"
   type: "Deconvolution"
-  bottom: "score_fr"
+  bottom: "fuse_8"
   top: "upscore8"
   param {
     lr_mult: 0
@@ -3402,8 +3495,8 @@ layer {
   convolution_param {
     num_output: 2
     bias_term: false
-    kernel_size: 63
-    stride: 32
+    kernel_size: 32
+    stride: 8
   }
 }
 layer {
