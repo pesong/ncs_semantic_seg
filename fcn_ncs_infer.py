@@ -53,7 +53,7 @@ graph.LoadTensor(image_t, 'user object')
 out = graph.GetResult()[0]
 
 #  flatten ---> image
-out = out.reshape(-1,2).T.reshape(2,344, -1)
+out = out.reshape(-1,2).T.reshape(2, 344, -1)
 out = out.argmax(axis=0)
 # out = out[12:-12, 12:-12]
 # print(out)
@@ -69,5 +69,4 @@ out_im.save('demo_test/' + iamge_name + '_ncs_' + '.png')
 
 masked_im = Image.fromarray(vis.vis_seg(img_draw, out, voc_palette))
 masked_im.save('demo_test/visualization.jpg')
-
 
