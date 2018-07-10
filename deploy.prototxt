@@ -3495,7 +3495,68 @@ layer {
   convolution_param {
     num_output: 2
     bias_term: false
-    kernel_size: 32
-    stride: 8
+    kernel_size: 4
+    stride: 2
+    pad: 1
+  }
+}
+
+
+
+
+layer {
+  name: "score_block_3_1"
+  type: "Convolution"
+  bottom: "block_3_1"
+  top: "score_block_3_1"
+  param {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param {
+    num_output: 2
+    kernel_size: 1
+  }
+}
+
+layer {
+  name: "fuse_4"
+  type: "Eltwise"
+  bottom: "upscore8"
+  bottom: "score_block_3_1"
+  top: "fuse_4"
+  eltwise_param {
+    operation: SUM
+  }
+}
+layer {
+  name: "upscore16"
+  type: "Deconvolution"
+  bottom: "fuse_4"
+  top: "upscore16"
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 2
+    bias_term: false
+    kernel_size: 16
+    stride: 4
+  }
+}
+
+layer {
+  name: "score"
+  type: "Crop"
+  bottom: "upscore16"
+  bottom: "data"
+  top: "score"
+  crop_param {
+    axis: 2
+    offset: 0
   }
 }

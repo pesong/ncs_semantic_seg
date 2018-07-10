@@ -19,5 +19,5 @@ iter_size: 1
 max_iter: 200000
 weight_decay: 0.0002
 snapshot: 2000
-snapshot_prefix: "snapshot/mobilenet_32"
+snapshot_prefix: "snapshot/mobilenet_8s"
 test_initialization: false
