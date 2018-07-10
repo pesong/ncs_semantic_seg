@@ -10,7 +10,7 @@ from utils import vis
 # define parameters
 IMAGE_PATH = 'demo_test/gaussian/2.jpg'
 
-IMAGE_MEAN = [104.00698793,116.66876762,122.67891434]
+IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
 IMAGE_DIM = [320, 480]
 
 NET_PROTO = 'deploy.prototxt'
@@ -55,8 +55,8 @@ net = caffe.Net(NET_PROTO, WEIGHTS, caffe.TEST)
 caffe_root = '/opt/movidius/caffe/'
 
 # load the mean ImageNet image (as distributed with Caffe) for subtraction
-mu = numpy.load(caffe_root + 'python/caffe/imagenet/ilsvrc_2012_mean.npy')
-mu = mu.mean(1).mean(1)  # average over pixels to obtain the mean (BGR) pixel values
+mu = [71.60167789, 82.09696889, 72.30608881]
+# average over pixels to obtain the mean (BGR) pixel values
 
 # create transformer for the input called 'data'
 transformer = caffe.io.Transformer({'data': (1,3,320,480)})

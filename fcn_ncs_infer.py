@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 
 # input parameters
-IMAGE_MEAN = [104.00698793,116.66876762,122.67891434]
+IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
 
 GRAPH_PATH = 'ncs_model/Inception_fcn4s_kitti.graph'
 IMAGE_PATH = 'demo_test/gaussian/1.jpg'

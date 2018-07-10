@@ -13,7 +13,7 @@ def max_pool(bottom, ks=2, stride=2):
 
 def fcn(split):
     n = caffe.NetSpec()
-    pydata_params = dict(split=split, mean=(104.00699, 116.66877, 122.67892),
+    pydata_params = dict(split=split, mean=(71.60167789, 82.09696889, 72.30608881),
             seed=1337)
     if split == 'train':
         pydata_params['sbdd_dir'] = '../data/sbdd/dataset'

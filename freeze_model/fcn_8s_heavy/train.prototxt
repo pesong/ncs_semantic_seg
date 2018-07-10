@@ -6,7 +6,7 @@ layer {
   python_param {
     module: "voc_layers"
     layer: "BDDSegDataLayer"
-    param_str: "{\'bdd_dir\': \'/dl/data/bdd100k/seg', \'seed\': 1337, \'split\': \'train\', \'mean\': (104.00699, 116.66877, 122.67892)}"
+    param_str: "{\'bdd_dir\': \'/dl/data/bdd100k/seg', \'seed\': 1337, \'split\': \'train\', \'mean\': (71.60167789, 82.09696889, 72.30608881)}"
   }
 }
 layer {

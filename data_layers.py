@@ -1,3 +1,5 @@
+import os
+
 import cv2
 import sys
 sys.path.append('/opt/movidius/caffe/python')
@@ -9,7 +11,7 @@ import matplotlib.pyplot as plt
 
 import random
 
-class KittiSegDataLayer(caffe.Layer):
+class CityScapeSegDataLayer(caffe.Layer):
     """
     Load (input image, label image) pairs from PASCAL VOC
     one-at-a-time while reshaping the net to preserve dimensions.
@@ -27,12 +29,12 @@ class KittiSegDataLayer(caffe.Layer):
         for PASCAL VOC semantic segmentation.
         example
         params = dict(bdd_dir="/path/to/bdd100k/seg",
-            mean=(104.00698793, 116.66876762, 122.67891434),
+            mean=[71.60167789, 82.09696889, 72.30608881],
             split="val")
         """
         # config
         params = eval(self.param_str)
-        self.kitti_dir = params['kitti_dir']
+        self.cityscape_dir = params['cityscape_dir']
         self.split = params['split']
         self.mean = np.array(params['mean'])
         self.random = params.get('randomize', True)
@@ -46,8 +48,23 @@ class KittiSegDataLayer(caffe.Layer):
             raise Exception("Do not define a bottom.")
 
         # load indices for images and labels
-        split_f  = '{}/{}.txt'.format(self.kitti_dir, self.split)
-        self.indices = open(split_f, 'r').read().splitlines()
+        split_f  = '{}/{}.txt'.format(self.cityscape_dir, self.split)
+
+        self.folders = open(split_f, 'r').read().splitlines()
+
+        print(self.folders)
+
+        self.indices = []
+
+        path_imgs = self.folders[0]
+        for root, dirs, files in os.walk(path_imgs):
+            for dir in dirs:
+                for name in os.listdir(root + dir):
+                    if('leftImg8bit' in name):
+                        name_label = name.replace('leftImg8bit', 'gtFine_labelIds')
+                        root_label = root.replace(self.folders[0], self.folders[1])
+                        self.indices.append((root + dir + '/' + name, root_label + dir + '/' + name_label))
+
         self.idx = 0
 
         # make eval deterministic
@@ -95,7 +112,7 @@ class KittiSegDataLayer(caffe.Layer):
         - subtract mean
         - transpose to channel x height x width order
         """
-        im = Image.open('{}/train_320_480/{}'.format(self.kitti_dir, idx))
+        im = Image.open(idx[0])
         in_ = np.array(im, dtype=np.float32)
         in_ = in_[:, :, ::-1]
         in_ -= self.mean
@@ -108,17 +125,14 @@ class KittiSegDataLayer(caffe.Layer):
         Load label image as 1 x height x width integer array of label indices.
         The leading singleton dimension is required by the loss.
         """
-        idx = idx.split('_')
-        idx.insert(1, '_road_')
-        idx = ''.join(idx)
-        idx_file = '{}/label_320_480/{}'.format(self.kitti_dir, idx)
 
-        label = Image.open(idx_file)
+        # cityscapes  读取灰度图，对多分类进行相应的映射
+        label = Image.open(idx[1])
         label = np.array(label, dtype=np.uint8)
-        label = label[:, :, ::-1]
+        label = label[np.newaxis, ...]
 
-        label_road = np.all(label == [255, 0, 255], axis=2)
-        label_bg = np.any(label != [255, 0, 255], axis=2)
+        label_road = np.all(label == [7], axis=0)
+        label_bg = np.any(label != [7], axis=0)
 
         label_all = np.dstack([label_bg, label_road])
         label_all = label_all.astype(np.float32)
