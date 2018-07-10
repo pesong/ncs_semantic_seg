@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 # input parameters
 IMAGE_MEAN = [104.00698793,116.66876762,122.67891434]
 
-GRAPH_PATH = 'ncs_model/Inception_kitti.graph'
-IMAGE_PATH = 'demo_test/kitti/um_000062.png'
+GRAPH_PATH = 'ncs_model/Inception_fcn4s_kitti.graph'
+IMAGE_PATH = 'demo_test/gaussian/1.jpg'
 IMAGE_DIM = [320, 480]
 
 # -----------------open the device and get a handle to it--------------------
@@ -53,9 +53,9 @@ graph.LoadTensor(image_t, 'user object')
 out = graph.GetResult()[0]
 
 #  flatten ---> image
-out = out.reshape(-1,2).T.reshape(2,320, -1)
+out = out.reshape(-1, 2).T.reshape(2, 331, -1)
 out = out.argmax(axis=0)
-# out = out[12:-12, 12:-12]
+out = out[:-11, :-11]
 # print(out)
 
 plt.imshow(out)
