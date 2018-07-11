@@ -27,9 +27,9 @@ solver.net.copy_from(weights)
 interp_layers = [k for k in solver.net.params.keys() if 'up' in k]
 surgery.interp(solver.net, interp_layers)
 
-# # scoring
-# val = np.loadtxt('/dl/data/kitti_road/data_road_ncs/val.txt', dtype=str)
+# scoring
+val = np.loadtxt('/dl/data/kitti_road/data_road_ncs/val.txt', dtype=str)
 
 for _ in range(25):
-    solver.step(4000)
-    # score.seg_tests(solver, False, val, layer='score')
+    solver.step(1)
+    score.seg_tests(solver, False, val, layer='score')
