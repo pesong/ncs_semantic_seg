@@ -80,10 +80,11 @@ class CityScapeSegDataLayer(caffe.Layer):
         # randomization: seed
         if self.random:
             random.seed(self.seed)
-            # self.idx = random.randint(0, len(self.indices)-1)
+            self.idx = random.randint(0, len(self.imglist)-1)
 
 
     def reshape(self, bottom, top):
+
         top[0].reshape(self.batch_size, 3, self.cropsize[0], self.cropsize[1])
         top[1].reshape(self.batch_size, 1, self.cropsize[0], self.cropsize[1])
 
@@ -92,36 +93,26 @@ class CityScapeSegDataLayer(caffe.Layer):
     def forward(self, bottom, top):
 
         for itt in range(self.batch_size):
-            # use the batch loader to load the next image
-            img, label = self.load_img_label()
 
-            # assign output
-            top[0].data[itt, ...] = img
-            top[1].data[itt, ...] = label
+            #  randomization: seed and pick
+            if self.random:
+                self.idx = random.randint(0, len(self.imglist) - 1)
+            else:
+                self.idx += 1
+                if self.idx == (len(self.imglist) - 1):
+                    self.idx = 0
+
+            # use the batch loader to load the next image
+            # print(self.idx)
+            self.data = self.load_image()
+            self.label = self.load_label()
+
+            top[0].data[itt, ...] = self.data
+            top[1].data[itt, ...] = self.label
 
 
     def backward(self, top, propagate_down, bottom):
         pass
-
-
-    def load_img_label(self):
-        """
-        Load the next image in a batch.
-        """
-        #  randomization: seed and pick
-        if self.random:
-            # random.seed(self.seed)
-            self.idx = random.randint(0, len(self.imglist)-1)
-        else:
-            self.idx += 1
-            if self.idx == (len(self.imglist) - 1):
-                self.idx = 0
-
-        print(self.idx)
-        im = self.load_image()
-        label = self.load_label()
-
-        return im, label
 
 
     def load_image(self):
