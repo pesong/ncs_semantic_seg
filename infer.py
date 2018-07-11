@@ -8,14 +8,14 @@ import matplotlib.pyplot as plt
 from utils import vis
 
 # define parameters
-IMAGE_PATH = 'demo_test/gaussian/2.jpg'
+IMAGE_PATH = 'demo_test/gaussian/1.jpg'
 
 IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
 IMAGE_DIM = [320, 480]
 
 NET_PROTO = 'deploy.prototxt'
 # WEIGHTS = 'fcn-alexnet-pascal.caffemodel'
-WEIGHTS = 'snapshot/googlenet_8s_kitti/solver_iter_100000.caffemodel'
+WEIGHTS = 'snapshot/googlenet_8s_cityscapes/solver_iter_100000.caffemodel'
 # WEIGHTS = 'weight_pretrained/bvlc_googlenet.caffemodel'
 
 
@@ -55,7 +55,11 @@ net = caffe.Net(NET_PROTO, WEIGHTS, caffe.TEST)
 caffe_root = '/opt/movidius/caffe/'
 
 # load the mean ImageNet image (as distributed with Caffe) for subtraction
-mu = [71.60167789, 82.09696889, 72.30608881]
+# mu = numpy.load(caffe_root + 'python/caffe/imagenet/ilsvrc_2012_mean.npy')
+# mu = mu.mean(1).mean(1)
+# average over pixels to obtain the mean (BGR) pixel values
+
+mu = numpy.array([71.60167789, 82.09696889, 72.30608881])
 # average over pixels to obtain the mean (BGR) pixel values
 
 # create transformer for the input called 'data'

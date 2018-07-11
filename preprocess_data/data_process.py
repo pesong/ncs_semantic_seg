@@ -1,8 +1,8 @@
 import os
 from PIL import Image
 
-path_name = '/media/pesong/e/dl_gaussian/data/cityscapes/cityscapes_ori/leftImg8bit/train'
-target_name = '/media/pesong/e/dl_gaussian/data/cityscapes/cityscapes_ncs/leftImg8bit/train'
+path_name = '/media/pesong/e/dl_gaussian/data/cityscapes/cityscapes_ori/leftImg8bit/test'
+target_name = '/media/pesong/e/dl_gaussian/data/cityscapes/cityscapes_ncs/leftImg8bit/test'
 
 for root, dirs, files in os.walk(path_name):
     for dir in dirs:

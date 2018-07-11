@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 # input parameters
 IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
 
-GRAPH_PATH = 'ncs_model/Inception_fcn4s_kitti.graph'
+GRAPH_PATH = 'ncs_model/cityscapes_fcn4s.graph'
 IMAGE_PATH = 'demo_test/gaussian/1.jpg'
 IMAGE_DIM = [320, 480]
 
