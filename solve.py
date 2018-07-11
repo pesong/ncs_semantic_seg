@@ -14,7 +14,7 @@ try:
 except:
     pass
 
-weights = 'weight_pretrained/solver_iter_100000_0630.caffemodel'
+weights = 'weight_pretrained/bvlc_googlenet.caffemodel'
 
 # init
 caffe.set_device(0)
@@ -28,7 +28,7 @@ interp_layers = [k for k in solver.net.params.keys() if 'up' in k]
 surgery.interp(solver.net, interp_layers)
 
 # scoring
-val = np.loadtxt('/dl/data/bdd100k/seg/val.txt', dtype=str)
+val = np.loadtxt('/dl/data/kitti_road/data_road_ncs/val.txt', dtype=str)
 
 for _ in range(25):
     solver.step(4000)

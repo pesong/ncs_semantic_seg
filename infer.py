@@ -8,17 +8,14 @@ import matplotlib.pyplot as plt
 from utils import vis
 
 # define parameters
-# [0ace96c3-48481887, 00ad8a92-c4851839, 1fa8aed6-2e4ce3dd]
-IMAGE_PATH = 'demo_test/1.jpg'
-# IMAGE_PATH = 'demo_test/444282550.jpg'
-
+IMAGE_PATH = 'demo_test/gaussian/2.jpg'
 
 IMAGE_MEAN = [104.00698793,116.66876762,122.67891434]
 IMAGE_DIM = [320, 480]
 
 NET_PROTO = 'deploy.prototxt'
 # WEIGHTS = 'fcn-alexnet-pascal.caffemodel'
-WEIGHTS = 'snapshot/googlenet_8s_tune/solver_iter_100000.caffemodel'
+WEIGHTS = 'snapshot/googlenet_8s_kitti/solver_iter_100000.caffemodel'
 # WEIGHTS = 'weight_pretrained/bvlc_googlenet.caffemodel'
 
 
@@ -79,17 +76,18 @@ net.blobs['data'].data[...] = image_t
 # ------------------infer-----------------------------
 # run net and take argmax for prediction
 net.forward()
-out = net.blobs['upscore8'].data[0]
+out = net.blobs['upscore'].data[0]
 out = out.argmax(axis=0)
+out = out[:-11, :-11]
 
 plt.imshow(out)
 plt.show()
 
 # visualize segmentation in PASCAL VOC colors
-voc_palette = vis.make_palette(21)
+voc_palette = vis.make_palette(2)
 out_im = Image.fromarray(vis.color_seg(out, voc_palette))
 iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
 out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')
 
-# masked_im = Image.fromarray(vis.vis_seg(im, out, voc_palette))
-# masked_im.save('demo_test/visualization.jpg')
+masked_im = Image.fromarray(vis.vis_seg(img, out, voc_palette))
+masked_im.save('demo_test/visualization.jpg')
