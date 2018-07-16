@@ -8,14 +8,14 @@ import matplotlib.pyplot as plt
 from utils import vis
 
 # define parameters
-IMAGE_PATH = 'demo_test/gaussian/1.jpg'
+IMAGE_PATH = 'demo_test/gaussian/2.jpg'
 
 IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
 IMAGE_DIM = [320, 480]
 
 NET_PROTO = 'deploy.prototxt'
 # WEIGHTS = 'fcn-alexnet-pascal.caffemodel'
-WEIGHTS = 'snapshot/googlenet_8s_cityscapes/solver_iter_100000.caffemodel'
+WEIGHTS = 'weight_pretrained/inception_fcn4s_city_batch20.caffemodel'
 # WEIGHTS = 'weight_pretrained/bvlc_googlenet.caffemodel'
 
 
