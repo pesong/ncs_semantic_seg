@@ -13,6 +13,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import random
 
+
 class CityScapeSegDataLayer(caffe.Layer):
     """
     Load (input image, label image) pairs from PASCAL VOC
@@ -64,8 +65,8 @@ class CityScapeSegDataLayer(caffe.Layer):
         for root, dirs, files in os.walk(path_imgs):
             for dir in dirs:
                 for name in os.listdir(root + dir):
-                    if('leftImg8bit' in name):
-                        name_label = name.replace('leftImg8bit', 'gtFine_labelIds')
+                    if ('leftImg8bit' in name):
+                        name_label = name.replace('leftImg8bit', 'gtFine_labelTrainIds')
                         root_label = root.replace(self.folders[0], self.folders[1])
                         self.imglist.append(root + dir + '/' + name)
                         self.labellist.append(root_label + dir + '/' + name_label)
@@ -80,15 +81,12 @@ class CityScapeSegDataLayer(caffe.Layer):
         # randomization: seed
         if self.random:
             random.seed(self.seed)
-            self.idx = random.randint(0, len(self.imglist)-1)
-
+            self.idx = random.randint(0, len(self.imglist) - 1)
 
     def reshape(self, bottom, top):
 
         top[0].reshape(self.batch_size, 3, self.cropsize[0], self.cropsize[1])
         top[1].reshape(self.batch_size, 1, self.cropsize[0], self.cropsize[1])
-
-
 
     def forward(self, bottom, top):
 
@@ -110,10 +108,8 @@ class CityScapeSegDataLayer(caffe.Layer):
             top[0].data[itt, ...] = self.data
             top[1].data[itt, ...] = self.label
 
-
     def backward(self, top, propagate_down, bottom):
         pass
-
 
     def load_image(self):
         """
@@ -127,9 +123,8 @@ class CityScapeSegDataLayer(caffe.Layer):
         in_ = np.array(im, dtype=np.float32)
         in_ = in_[:, :, ::-1]
         in_ -= self.mean
-        in_ = in_.transpose((2,0,1))
+        in_ = in_.transpose((2, 0, 1))
         return in_
-
 
     def load_label(self):
         """
@@ -139,21 +134,22 @@ class CityScapeSegDataLayer(caffe.Layer):
 
         # cityscapes  读取灰度图，对多分类进行相应的映射
         label = Image.open(self.labellist[self.idx])
-        label = np.array(label, dtype=np.uint8)
-        label = label[np.newaxis, ...]
+        label_in = np.array(label, dtype=np.uint8)
 
-        label_road = np.all(label == [7], axis=0)
-        label_bg = np.any(label != [7], axis=0)
+        # h = label_in.shape[0]
+        # w = label_in.shape[1]
+        label_out = label_in
 
-        label_all = np.dstack([label_bg, label_road])
-        label_all = label_all.astype(np.float32)
-        label_all = label_all.transpose((2, 0, 1))
-        label_all = label_all[0]
+        # for i in range(h):
+        #     for j in range(w):
+        #         # if label_out[i][j] not in [7,26,24,21,6,8,13,12,0]:
+        #         lb = label_out[i][j]
+        #         if lb not in [7,26,24,21,6,8,13,12,0]:
+        #             label_out[i][j] = 0
 
-        # plt.imshow(label_all)
+        # plt.imshow(label_out)
         # plt.show()
 
-        label = label_all[np.newaxis, ...]
+        label_out = label_out[np.newaxis, ...]
 
-        return label
-
+        return label_out

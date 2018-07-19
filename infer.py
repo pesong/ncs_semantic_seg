@@ -15,7 +15,7 @@ IMAGE_DIM = [320, 480]
 
 NET_PROTO = 'deploy.prototxt'
 # WEIGHTS = 'fcn-alexnet-pascal.caffemodel'
-WEIGHTS = 'weight_pretrained/inception_fcn4s_city_batch20.caffemodel'
+WEIGHTS = 'snapshot/inception_4s_city_batch_10classes/solver_iter_2000.caffemodel'
 # WEIGHTS = 'weight_pretrained/bvlc_googlenet.caffemodel'
 
 
@@ -88,7 +88,7 @@ plt.imshow(out)
 plt.show()
 
 # visualize segmentation in PASCAL VOC colors
-voc_palette = vis.make_palette(2)
+voc_palette = vis.make_palette(9)
 out_im = Image.fromarray(vis.color_seg(out, voc_palette))
 iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
 out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')

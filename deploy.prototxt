@@ -2120,7 +2120,7 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 9
     kernel_size: 1
   }
 }
@@ -2135,7 +2135,7 @@ layer {
     lr_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 9
     bias_term: false
     kernel_size: 4
     stride: 2
@@ -2156,7 +2156,7 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 9
     kernel_size: 1
   }
 }
@@ -2181,7 +2181,7 @@ layer {
     lr_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 9
     bias_term: false
     kernel_size: 4
     stride: 2
@@ -2202,7 +2202,7 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 9
     kernel_size: 1
   }
 }
@@ -2226,7 +2226,7 @@ layer {
     lr_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 9
     bias_term: false
     kernel_size: 4
     stride: 2
@@ -2249,7 +2249,7 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 9
     kernel_size: 1
   }
 }
@@ -2273,9 +2273,21 @@ layer {
     lr_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 9
     bias_term: false
     kernel_size: 15
     stride: 4
+  }
+}
+
+layer {
+  name: "score"
+  type: "Crop"
+  bottom: "upscore"
+  bottom: "data"
+  top: "score"
+  crop_param {
+    axis: 2
+    offset: 0
   }
 }

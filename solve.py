@@ -18,7 +18,7 @@ try:
 except:
     pass
 
-weights = 'snapshot/googlenet_8s_cityscapes/solver_iter_12000.caffemodel'
+weights = 'weight_pretrained/bvlc_googlenet.caffemodel'
 proto = 'weight_pretrained/bvlc_googlenet_deploy.prototxt'
 final_model_name = 'cityscapes_4s_inception'
 n_steps = 20000
