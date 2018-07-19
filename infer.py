@@ -6,16 +6,18 @@ import numpy
 from PIL import Image
 import matplotlib.pyplot as plt
 from utils import vis
+import skimage.io
+import skimage.transform
 
 # define parameters
-IMAGE_PATH = 'demo_test/gaussian/2.jpg'
+IMAGE_PATH = 'demo_test/gaussian/4.jpg'
 
 IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
 IMAGE_DIM = [320, 480]
 
 NET_PROTO = 'deploy.prototxt'
 # WEIGHTS = 'fcn-alexnet-pascal.caffemodel'
-WEIGHTS = 'snapshot/inception_4s_city_batch_10classes/solver_iter_2000.caffemodel'
+WEIGHTS = 'snapshot/inception_4s_city_batch_9classes/solver_iter_6000.caffemodel'
 # WEIGHTS = 'weight_pretrained/bvlc_googlenet.caffemodel'
 
 
@@ -84,14 +86,20 @@ out = net.blobs['upscore'].data[0]
 out = out.argmax(axis=0)
 out = out[:-11, :-11]
 
-plt.imshow(out)
-plt.show()
+# plt.imshow(out)
+# plt.show()
 
 # visualize segmentation in PASCAL VOC colors
-voc_palette = vis.make_palette(9)
+voc_palette = vis.make_palette(10)
 out_im = Image.fromarray(vis.color_seg(out, voc_palette))
 iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
 out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')
 
 masked_im = Image.fromarray(vis.vis_seg(img, out, voc_palette))
 masked_im.save('demo_test/visualization.jpg')
+
+## show mask_im
+mask_im_vis = skimage.io.imread('demo_test/visualization.jpg')
+plt.imshow(mask_im_vis)
+plt.show()
+

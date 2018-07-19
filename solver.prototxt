@@ -19,5 +19,5 @@ iter_size: 1
 max_iter: 300000
 weight_decay: 0.0002
 snapshot: 2000
-snapshot_prefix: "snapshot/inception_4s_city_batch_10classes"
+snapshot_prefix: "snapshot/inception_4s_city_batch_9classes"
 test_initialization: false

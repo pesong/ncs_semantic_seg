@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 # input parameters
 IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
 
-GRAPH_PATH = 'ncs_model/Inception_fcn4s_city.graph'
-IMAGE_PATH = 'demo_test/gaussian/2.jpg'
+GRAPH_PATH = 'inception_city_9c.graph'
+IMAGE_PATH = 'demo_test/gaussian/4.jpg'
 IMAGE_DIM = [320, 480]
 
 # -----------------open the device and get a handle to it--------------------
@@ -53,16 +53,16 @@ graph.LoadTensor(image_t, 'user object')
 out = graph.GetResult()[0]
 
 #  flatten ---> image
-out = out.reshape(-1, 2).T.reshape(2, 331, -1)
+out = out.reshape(-1, 9).T.reshape(9, 331, -1)
 out = out.argmax(axis=0)
 out = out[:-11, :-11]
 # print(out)
 
-plt.imshow(out)
-plt.show()
+# plt.imshow(out)
+# plt.show()
 
 # save result
-voc_palette = vis.make_palette(2)
+voc_palette = vis.make_palette(9)
 out_im = Image.fromarray(vis.color_seg(out, voc_palette))
 iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
 out_im.save('demo_test/' + iamge_name + '_ncs_' + '.png')
@@ -70,4 +70,10 @@ out_im.save('demo_test/' + iamge_name + '_ncs_' + '.png')
 masked_im = Image.fromarray(vis.vis_seg(img_draw, out, voc_palette))
 masked_im.save('demo_test/visualization.jpg')
 
+mask_im_vis = skimage.io.imread('demo_test/visualization.jpg')
 
+
+## show mask_im
+mask_im_vis = skimage.io.imread('demo_test/visualization.jpg')
+plt.imshow(mask_im_vis)
+plt.show()
