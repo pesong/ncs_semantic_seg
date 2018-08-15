@@ -84,8 +84,8 @@ out = net.blobs['upscore'].data[0]
 out = out.argmax(axis=0)
 out = out[:-11, :-11]
 
-plt.imshow(out)
-plt.show()
+# plt.imshow(out)
+# plt.show()
 
 # visualize segmentation in PASCAL VOC colors
 voc_palette = vis.make_palette(2)
@@ -94,4 +94,6 @@ iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
 out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')
 
 masked_im = Image.fromarray(vis.vis_seg(img, out, voc_palette))
+plt.imshow(masked_im)
+plt.show()
 masked_im.save('demo_test/visualization.jpg')
