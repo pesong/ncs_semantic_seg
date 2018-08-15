@@ -15,9 +15,9 @@ stepsize: 20000
 # high momentum
 momentum: 0.9
 # no gradient accumulation
-iter_size: 1
+iter_size: 6
 max_iter: 200000
 weight_decay: 0.0002
 snapshot: 2000
-snapshot_prefix: "snapshot/mobilenet_8s"
+snapshot_prefix: "snapshot/mobilenetv2_4s"
 test_initialization: false

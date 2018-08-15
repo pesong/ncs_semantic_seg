@@ -9,7 +9,7 @@ from utils import vis
 
 # define parameters
 # [0ace96c3-48481887, 00ad8a92-c4851839, 1fa8aed6-2e4ce3dd]
-IMAGE_PATH = 'demo_test/gaussian/4.jpg'
+IMAGE_PATH = 'demo_test/gaussian/6.jpg'
 # IMAGE_PATH = 'demo_test/444282550.jpg'
 
 
@@ -18,7 +18,7 @@ IMAGE_DIM = [320, 480]
 
 NET_PROTO = 'deploy.prototxt'
 # WEIGHTS = 'fcn-alexnet-pascal.caffemodel'
-WEIGHTS = 'snapshot/mobilenet_8s/solver_iter_100000.caffemodel'
+WEIGHTS = 'weight_pretrained/mobilenetv2_fcn4s_100000.caffemodel'
 # WEIGHTS = 'weight_pretrained/bvlc_googlenet.caffemodel'
 
 
@@ -83,10 +83,6 @@ out = net.blobs['score'].data[0]
 out = out.argmax(axis=0)
 
 
-
-plt.imshow(out)
-plt.show()
-
 # visualize segmentation in PASCAL VOC colors
 voc_palette = vis.make_palette(2)
 out_im = Image.fromarray(vis.color_seg(out, voc_palette))
@@ -95,3 +91,6 @@ out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')
 
 masked_im = Image.fromarray(vis.vis_seg(img, out, voc_palette))
 masked_im.save('demo_test/visualization.jpg')
+
+plt.imshow(masked_im)
+plt.show()
