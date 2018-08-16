@@ -15,7 +15,7 @@ stepsize: 20000
 # high momentum
 momentum: 0.9
 # no gradient accumulation
-iter_size: 6
+iter_size: 1
 max_iter: 200000
 weight_decay: 0.0002
 snapshot: 2000
