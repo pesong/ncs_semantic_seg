@@ -1,4 +1,7 @@
+import os
 import sys
+import time
+
 sys.path.insert(0, '/opt/movidius/caffe/python')
 import caffe
 
@@ -8,7 +11,7 @@ import matplotlib.pyplot as plt
 from utils import vis
 
 # define parameters
-IMAGE_PATH = 'demo_test/gaussian/2.jpg'
+IMAGE_PATH_root = 'demo_test/CS'
 
 IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
 IMAGE_DIM = [320, 480]
@@ -70,30 +73,46 @@ transformer.set_mean('data', mu)            # subtract the dataset-mean value in
 transformer.set_raw_scale('data', 255)      # rescale from [0, 1] to [0, 255]
 transformer.set_channel_swap('data', (2,1,0))  # swap channels from RGB to BGR
 
-img = Image.open(IMAGE_PATH)
-image = caffe.io.load_image(IMAGE_PATH)
-image_t = transformer.preprocess('data', image)
 
-# # copy the image data into the memory allocated for the net
-net.blobs['data'].data[...] = image_t
 
-# ------------------infer-----------------------------
-# run net and take argmax for prediction
-net.forward()
-out = net.blobs['upscore'].data[0]
-out = out.argmax(axis=0)
-out = out[:-11, :-11]
 
-# plt.imshow(out)
-# plt.show()
 
-# visualize segmentation in PASCAL VOC colors
-voc_palette = vis.make_palette(2)
-out_im = Image.fromarray(vis.color_seg(out, voc_palette))
-iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
-out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')
 
-masked_im = Image.fromarray(vis.vis_seg(img, out, voc_palette))
-plt.imshow(masked_im)
-plt.show()
-masked_im.save('demo_test/visualization.jpg')
+# 画图
+#
+# plt.subplot(2,1,1)
+# plt.title('origin image')
+
+
+for IMAGE_PATH in os.listdir(IMAGE_PATH_root):
+
+    img = Image.open(os.path.join(IMAGE_PATH_root, IMAGE_PATH))
+    image = caffe.io.load_image(os.path.join(IMAGE_PATH_root, IMAGE_PATH))
+    image_t = transformer.preprocess('data', image)
+
+    # # copy the image data into the memory allocated for the net
+    net.blobs['data'].data[...] = image_t
+
+    # ------------------infer-----------------------------
+    # run net and take argmax for prediction
+    net.forward()
+    out = net.blobs['upscore'].data[0]
+    out = out.argmax(axis=0)
+    out = out[:-11, :-11]
+
+    # plt.imshow(out)
+    # plt.show()
+
+    # visualize segmentation in PASCAL VOC colors
+    voc_palette = vis.make_palette(2)
+    out_im = Image.fromarray(vis.color_seg(out, voc_palette))
+    iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
+    out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')
+
+    masked_im = Image.fromarray(vis.vis_seg(img, out, voc_palette))
+    # plt.figure(1)
+    plt.imshow(masked_im)
+    plt.show(block=False)
+    time.sleep(0.1)
+    # plt.close(1)
+    masked_im.save('demo_test/visualization.jpg')
