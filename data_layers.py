@@ -62,7 +62,7 @@ class CityScapeSegDataLayer(caffe.Layer):
             for dir in dirs:
                 for name in os.listdir(root + dir):
                     if ('leftImg8bit' in name):
-                        name_label = name.replace('leftImg8bit', 'gtFine_labelTrainIds')
+                        name_label = name.replace('leftImg8bit', 'gtFine_labelIds')
                         root_label = root.replace(self.folders[0], self.folders[1])
                         self.imglist.append(root + dir + '/' + name)
                         self.labellist.append(root_label + dir + '/' + name_label)
@@ -130,25 +130,22 @@ class CityScapeSegDataLayer(caffe.Layer):
 
         # cityscapes  读取灰度图，对多分类进行相应的映射
         label = Image.open(self.labellist[self.idx])
-        label_in = np.array(label, dtype=np.uint8)
+        label = np.array(label, dtype=np.uint8)
+        label = label[np.newaxis, ...]
 
-        # h = label_in.shape[0]
-        # w = label_in.shape[1]
-        label_out = label_in
+        label_road = np.all(label == [7], axis=0)
+        label_bg = np.any(label != [7], axis=0)
 
-        # for i in range(h):
-        #     for j in range(w):
-        #         # if label_out[i][j] not in [7,26,24,21,6,8,13,12,0]:
-        #         lb = label_out[i][j]
-        #         if lb not in [7,26,24,21,6,8,13,12,0]:
-        #             label_out[i][j] = 0
+        label_all = np.dstack([label_bg, label_road])
+        label_all = label_all.astype(np.float32)
+        label_all = label_all.transpose((2, 0, 1))
+        label_all = label_all[0]
 
-        # plt.imshow(label_out)
+        # plt.imshow(label_all)
         # plt.show()
 
-        label_out = label_out[np.newaxis, ...]
-
-        return label_out
+        label = label_all[np.newaxis, ...]
+        return label
 
 
 

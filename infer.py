@@ -1,3 +1,4 @@
+import os
 import sys
 sys.path.insert(0, '/opt/movidius/caffe/python')
 import caffe
@@ -9,16 +10,16 @@ from utils import vis
 
 # define parameters
 # [0ace96c3-48481887, 00ad8a92-c4851839, 1fa8aed6-2e4ce3dd]
-IMAGE_PATH = 'demo_test/gaussian/6.jpg'
+IMAGE_PATH_root = 'demo_test/CS'
 # IMAGE_PATH = 'demo_test/444282550.jpg'
 
 
-IMAGE_MEAN = [104.00698793,116.66876762,122.67891434]
+IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
 IMAGE_DIM = [320, 480]
 
 NET_PROTO = 'deploy.prototxt'
 # WEIGHTS = 'fcn-alexnet-pascal.caffemodel'
-WEIGHTS = 'weight_pretrained/mobilenetv2_fcn4s_100000.caffemodel'
+WEIGHTS = 'snapshot/mobilenetv2_4s_iter_64000.caffemodel'
 # WEIGHTS = 'weight_pretrained/bvlc_googlenet.caffemodel'
 
 
@@ -69,28 +70,32 @@ transformer.set_mean('data', mu)            # subtract the dataset-mean value in
 transformer.set_raw_scale('data', 255)      # rescale from [0, 1] to [0, 255]
 transformer.set_channel_swap('data', (2,1,0))  # swap channels from RGB to BGR
 
-img = Image.open(IMAGE_PATH)
-image = caffe.io.load_image(IMAGE_PATH)
-image_t = transformer.preprocess('data', image)
 
-# # copy the image data into the memory allocated for the net
-net.blobs['data'].data[...] = image_t
+for IMAGE_PATH in os.listdir(IMAGE_PATH_root):
 
-# ------------------infer-----------------------------
-# run net and take argmax for prediction
-net.forward()
-out = net.blobs['score'].data[0]
-out = out.argmax(axis=0)
+    img = Image.open(os.path.join(IMAGE_PATH_root, IMAGE_PATH))
+    image = caffe.io.load_image(os.path.join(IMAGE_PATH_root, IMAGE_PATH))
+    image_t = transformer.preprocess('data', image)
 
+    # # copy the image data into the memory allocated for the net
+    net.blobs['data'].data[...] = image_t
 
-# visualize segmentation in PASCAL VOC colors
-voc_palette = vis.make_palette(2)
-out_im = Image.fromarray(vis.color_seg(out, voc_palette))
-iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
-out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')
+    # ------------------infer-----------------------------
+    # run net and take argmax for prediction
+    net.forward()
+    out = net.blobs['score'].data[0]
+    out = out.argmax(axis=0)
+    plt.imshow(out)
+    plt.show()
 
-masked_im = Image.fromarray(vis.vis_seg(img, out, voc_palette))
-masked_im.save('demo_test/visualization.jpg')
+    # visualize segmentation in PASCAL VOC colors
+    voc_palette = vis.make_palette(2)
+    out_im = Image.fromarray(vis.color_seg(out, voc_palette))
+    iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
+    out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')
 
-plt.imshow(masked_im)
-plt.show()
+    masked_im = Image.fromarray(vis.vis_seg(img, out, voc_palette))
+    masked_im.save('demo_test/visualization.jpg')
+
+    plt.imshow(masked_im)
+    plt.show()
