@@ -1,8 +1,8 @@
 import os
 import sys
 import time
-
-sys.path.insert(0, '/opt/movidius/caffe/python')
+caffe_root = '/home/pesong/tools/ssd-caffe/'
+sys.path.insert(0, caffe_root + 'python')
 import caffe
 
 import numpy
@@ -112,7 +112,7 @@ for IMAGE_PATH in os.listdir(IMAGE_PATH_root):
     masked_im = Image.fromarray(vis.vis_seg(img, out, voc_palette))
     # plt.figure(1)
     plt.imshow(masked_im)
-    plt.show(block=False)
+    plt.show()
     time.sleep(0.1)
     # plt.close(1)
     masked_im.save('demo_test/visualization.jpg')
