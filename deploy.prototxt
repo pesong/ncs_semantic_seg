@@ -3372,10 +3372,10 @@ layer {
 
 
 layer {
-  name: "score_conv6_4"
+  name: "score_32"
   type: "Convolution"
   bottom: "conv6_4/bn"
-  top: "score_conv6_4"
+  top: "score_32"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -3390,10 +3390,10 @@ layer {
   }
 }
 layer {
-  name: "upscore2"
+  name: "upscore16"
   type: "Deconvolution"
-  bottom: "score_conv6_4"
-  top: "upscore2"
+  bottom: "score_32"
+  top: "upscore16"
   param {
     lr_mult: 0
   }
@@ -3408,10 +3408,10 @@ layer {
 
 
 layer {
-  name: "score_block_5_2"
+  name: "score_16"
   type: "Convolution"
   bottom: "block_5_2"
-  top: "score_block_5_2"
+  top: "score_16"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -3428,18 +3428,20 @@ layer {
 layer {
   name: "fuse_16"
   type: "Eltwise"
-  bottom: "upscore2"
-  bottom: "score_block_5_2"
+  bottom: "upscore16"
+  bottom: "score_16"
   top: "fuse_16"
   eltwise_param {
     operation: SUM
   }
 }
+
+
 layer {
-  name: "upscore_block_5_2"
+  name: "upscore_8"
   type: "Deconvolution"
   bottom: "fuse_16"
-  top: "upscore_block_5_2"
+  top: "upscore_8"
   param {
     lr_mult: 0
   }
@@ -3456,10 +3458,10 @@ layer {
 
 
 layer {
-  name: "score_block_4_6"
+  name: "score_8"
   type: "Convolution"
   bottom: "block_4_6"
-  top: "score_block_4_6"
+  top: "score_8"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -3477,18 +3479,18 @@ layer {
 layer {
   name: "fuse_8"
   type: "Eltwise"
-  bottom: "upscore_block_5_2"
-  bottom: "score_block_4_6"
+  bottom: "upscore_8"
+  bottom: "score_8"
   top: "fuse_8"
   eltwise_param {
     operation: SUM
   }
 }
 layer {
-  name: "upscore8"
+  name: "upscore_4"
   type: "Deconvolution"
   bottom: "fuse_8"
-  top: "upscore8"
+  top: "upscore_4"
   param {
     lr_mult: 0
   }
@@ -3503,12 +3505,11 @@ layer {
 
 
 
-
 layer {
-  name: "score_block_3_1"
+  name: "score_4"
   type: "Convolution"
   bottom: "block_3_1"
-  top: "score_block_3_1"
+  top: "score_4"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -3526,37 +3527,25 @@ layer {
 layer {
   name: "fuse_4"
   type: "Eltwise"
-  bottom: "upscore8"
-  bottom: "score_block_3_1"
+  bottom: "upscore_4"
+  bottom: "score_4"
   top: "fuse_4"
   eltwise_param {
     operation: SUM
   }
 }
 layer {
-  name: "upscore16"
+  name: "upscore"
   type: "Deconvolution"
   bottom: "fuse_4"
-  top: "upscore16"
+  top: "upscore"
   param {
     lr_mult: 0
   }
   convolution_param {
     num_output: 2
     bias_term: false
-    kernel_size: 16
+    kernel_size: 15
     stride: 4
-  }
-}
-
-layer {
-  name: "score"
-  type: "Crop"
-  bottom: "upscore16"
-  bottom: "data"
-  top: "score"
-  crop_param {
-    axis: 2
-    offset: 0
   }
 }
