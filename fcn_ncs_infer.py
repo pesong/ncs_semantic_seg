@@ -35,8 +35,9 @@ with open(GRAPH_PATH, mode='rb') as f:
 graph = device.AllocateGraph(blob)
 
 # -------- step3: offload image into the ncs to run inference
-plt.figure(figsize=(18,12))
-subplots = 2
+fig = plt.figure(figsize=(20,10))
+fig.tight_layout()
+plt.subplots_adjust(left=0.04, top= 0.96, right = 0.96, bottom = 0.04, wspace = 0.01, hspace = 0.01)  # 调整子图间距
 plt.ion()
 
 i = 0
@@ -69,7 +70,7 @@ for IMAGE_PATH in os.listdir(IMAGE_PATH_ROOT):
     # save result
     voc_palette = vis.make_palette(2)
     out_im = Image.fromarray(vis.color_seg(out, voc_palette))
-    iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
+    # iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
     # out_im.save('demo_test/' + iamge_name + '_ncs_' + '.png')
 
     # get masked image
@@ -83,15 +84,17 @@ for IMAGE_PATH in os.listdir(IMAGE_PATH_ROOT):
 
 
     # visualization
-    plt.subplot(1, subplots, 1)
-    plt.title("orig image", fontsize=16)
+    plt.suptitle('inception-movidius', fontsize=16)
+
+    plt.subplot(1, 2, 1)
+    plt.title("original image", fontsize=16)
     plt.imshow(img_ori)
 
-    plt.subplot(1, subplots, 2)
+    plt.subplot(1, 2, 2)
     plt.title("segmentation", fontsize=16)
     plt.imshow(img_masked)
 
-    plt.pause(0.000001)
+    plt.pause(0.01)
     plt.clf()
 
 plt.ioff()

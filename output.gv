@@ -17,7 +17,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B1F1EF"> 0.0 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#B2189E"> 172166.89 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#B2189E"> 164950.63 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFCB"> 0.01 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -33,8 +33,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#84E6E1"> 722.5344 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FDE1FA"> 2644.31 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFA1"> 16.30 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FDE1FA"> 2641.27 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFA1"> 16.31 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -49,7 +49,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 5.5296 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE3FB"> 1089.57 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE3FB"> 1090.50 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC0"> 4.30 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -65,7 +65,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B1F1EF"> 0.0 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 767.06 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 764.11 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC7"> 1.53 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -81,8 +81,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ACEFED"> 78.6432 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 543.58 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC6"> 2.17 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 546.24 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC6"> 2.16 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -97,8 +97,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#2ED1C6"> 2123.3664 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 304.75 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFF6F"> 35.31 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 305.04 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFF6F"> 35.27 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -113,8 +113,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B1F1EF"> 0.0 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 836.98 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC0"> 4.20 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE3FB"> 833.25 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC0"> 4.22 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -129,8 +129,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 4.1472 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE3FB"> 1384.70 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC5"> 2.54 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE3FB"> 1387.19 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC5"> 2.53 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -145,8 +145,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ADF0ED"> 58.9824 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 688.27 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC8"> 1.31 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 702.46 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC8"> 1.28 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -161,7 +161,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ABEFED"> 88.4736 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 559.39 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 562.21 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC7"> 1.63 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -177,8 +177,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#90E9E4"> 530.8416 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 311.95 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFA8"> 13.36 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 310.09 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFA8"> 13.44 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -193,8 +193,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 14.7456 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE3FB"> 1605.99 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFCA"> 0.55 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE2FB"> 1627.87 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCA"> 0.54 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -209,8 +209,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ADF0ED"> 61.44 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE3FB"> 872.17 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC6"> 2.13 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE3FB"> 879.30 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC6"> 2.11 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -225,7 +225,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 4.1472 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 766.34 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 763.95 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC8"> 1.15 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -241,8 +241,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AFF0EE"> 29.4912 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE3FB"> 1009.04 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC9"> 0.88 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE3FB"> 1036.78 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC9"> 0.86 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -257,8 +257,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#A7EEEB"> 157.2864 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 454.51 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC4"> 2.72 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 462.37 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC5"> 2.67 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -276,8 +276,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#A7EEEB"> 157.2864 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 461.21 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC4"> 2.68 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 467.86 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC5"> 2.64 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -295,8 +295,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#6FE1DA"> 1061.6832 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 245.40 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFF8F"> 23.22 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 243.40 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFF8E"> 23.41 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -311,8 +311,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AEF0EE"> 39.3216 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE3FB"> 1208.53 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC9"> 0.98 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE3FB"> 1230.49 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC9"> 0.97 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -330,8 +330,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#9AEBE7"> 368.64 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 549.53 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFB9"> 6.94 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 547.97 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFB9"> 6.96 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -346,7 +346,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 5.5296 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 717.74 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 718.51 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC7"> 1.63 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -365,8 +365,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ACEFED"> 78.6432 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 786.64 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC7"> 1.53 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 782.03 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC7"> 1.54 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -381,8 +381,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 2.592 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE3FB"> 1328.46 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC7"> 1.65 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE3FB"> 1325.43 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC7"> 1.66 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -400,8 +400,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AAEFEC"> 110.592 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 380.68 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC7"> 1.91 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 389.67 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC7"> 1.86 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -416,8 +416,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ADF0ED"> 55.296 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 577.78 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC9"> 1.10 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 568.70 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC9"> 1.12 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -432,8 +432,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#A3EDEA"> 215.6544 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 245.53 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFBD"> 5.44 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 248.13 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFBD"> 5.38 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -448,7 +448,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 9.216 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE3FB"> 1141.14 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE3FB"> 1150.50 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFCA"> 0.49 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -464,7 +464,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AFF0EE"> 23.04 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 571.10 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 569.51 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC9"> 0.87 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -480,8 +480,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 2.592 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 682.93 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC9"> 0.80 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 691.53 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC9"> 0.79 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -496,7 +496,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AEF0EE"> 36.864 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 687.56 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 687.70 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC9"> 0.88 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -512,8 +512,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AAEFED"> 98.304 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 295.21 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC5"> 2.52 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 292.30 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC5"> 2.54 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -531,7 +531,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ACEFED"> 68.8128 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 388.93 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 389.47 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC7"> 1.79 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -550,8 +550,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#A0ECE9"> 270.9504 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 295.63 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFBD"> 5.37 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 296.31 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFBD"> 5.36 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -566,8 +566,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 14.7456 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE3FB"> 1034.77 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFCA"> 0.59 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE3FB"> 1065.16 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCA"> 0.57 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -585,8 +585,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AEF0EE"> 46.08 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 436.36 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC7"> 1.75 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 419.26 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC7"> 1.82 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -601,8 +601,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 2.7648 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 681.65 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC9"> 0.86 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 676.82 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC9"> 0.87 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -620,7 +620,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AEF0EE"> 39.3216 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 694.62 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 697.88 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC9"> 0.93 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -636,8 +636,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ACEFED"> 78.6432 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 363.12 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC6"> 1.96 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 374.50 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC7"> 1.90 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -655,8 +655,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ACEFED"> 78.6432 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 374.55 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC7"> 1.90 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 370.70 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC6"> 1.92 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -674,8 +674,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#9BEBE8"> 353.8944 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 219.69 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFB5"> 8.58 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 219.88 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFB5"> 8.57 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -690,7 +690,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 14.7456 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE3FB"> 1073.24 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE3FB"> 1074.09 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFCA"> 0.57 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -709,8 +709,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AEF0EE"> 46.08 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 424.23 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC7"> 1.80 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 417.40 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC7"> 1.83 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -725,7 +725,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 2.7648 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 689.53 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 688.24 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC9"> 0.85 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -744,8 +744,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AEF0EE"> 39.3216 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 681.88 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC9"> 0.95 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 699.51 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC9"> 0.93 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -760,8 +760,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ACEFED"> 68.8128 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 365.62 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC7"> 1.90 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 382.31 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC7"> 1.82 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -779,8 +779,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ABEFED"> 88.4736 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 320.64 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC6"> 2.27 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 345.53 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC6"> 2.10 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -798,8 +798,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#95EAE6"> 447.8976 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 259.84 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFB5"> 8.47 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 259.15 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFB5"> 8.49 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -814,7 +814,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AFF0EE"> 19.6608 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE3FB"> 1015.21 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE3FB"> 1014.15 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFCA"> 0.61 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -833,8 +833,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ADF0ED"> 61.44 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 571.70 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC7"> 1.78 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 573.20 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC7"> 1.77 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -849,7 +849,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 2.7648 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 687.45 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 686.07 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC9"> 0.85 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -868,8 +868,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AEF0EE"> 39.3216 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 712.11 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC9"> 0.91 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 703.06 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC9"> 0.92 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -884,8 +884,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#A6EEEB"> 162.2016 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 210.84 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC1"> 4.09 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 211.37 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC1"> 4.08 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -903,8 +903,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AAEFED"> 101.376 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 233.32 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC3"> 3.28 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 215.55 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC2"> 3.55 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -922,8 +922,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#8EE8E4"> 552.96 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 225.17 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFAE"> 11.25 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 226.83 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFAE"> 11.16 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -938,7 +938,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AFF0EE"> 20.2752 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 719.19 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 711.69 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC9"> 0.89 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -957,7 +957,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#A9EFEC"> 122.88 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 326.65 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 327.07 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC3"> 3.42 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -973,8 +973,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 2.8512 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 698.43 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC9"> 0.87 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 700.98 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC9"> 0.86 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -992,8 +992,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ABEFED"> 81.1008 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 440.22 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC7"> 1.67 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 442.64 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC7"> 1.66 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1008,8 +1008,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 1.1232 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE3FB"> 1280.92 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFCA"> 0.74 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE3FB"> 1302.38 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCA"> 0.73 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1027,8 +1027,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ADF0ED"> 63.8976 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 361.08 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC7"> 1.79 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 361.99 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC7"> 1.78 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1043,8 +1043,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AEF0EE"> 39.936 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 398.26 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC8"> 1.24 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 393.53 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC8"> 1.25 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1059,8 +1059,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#A8EEEC"> 138.24 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 334.52 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC1"> 3.88 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 326.91 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC1"> 3.97 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1075,7 +1075,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 7.9872 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 587.04 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 588.81 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFCA"> 0.49 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -1091,8 +1091,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AFF0EE"> 30.72 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 345.75 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC8"> 1.24 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 342.95 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC8"> 1.25 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1107,8 +1107,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 1.1232 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 557.04 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFCA"> 0.43 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 589.82 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCA"> 0.40 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1123,8 +1123,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AFF0EE"> 31.9488 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 402.56 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC9"> 1.10 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 386.59 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC9"> 1.14 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1139,8 +1139,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#ABEFED"> 95.8464 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 431.81 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC6"> 1.96 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 431.12 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC6"> 1.97 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1158,8 +1158,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AEF0EE"> 47.9232 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 476.31 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC9"> 1.14 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 456.88 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC8"> 1.19 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1177,8 +1177,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#A4EEEB"> 199.0656 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 316.65 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFBD"> 5.58 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 321.87 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFBD"> 5.49 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1193,8 +1193,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 11.9808 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 562.60 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFCA"> 0.56 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 566.80 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCA"> 0.55 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1212,8 +1212,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AEF0EE"> 46.08 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 351.84 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC7"> 1.83 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 336.23 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC7"> 1.91 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1228,7 +1228,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 1.1232 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 598.75 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 591.30 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFCA"> 0.40 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -1247,7 +1247,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#AFF0EE"> 31.9488 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 388.71 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 387.84 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC9"> 1.14 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -1263,7 +1263,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 0.6144 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 770.02 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 766.12 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFCA"> 0.39 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -1282,8 +1282,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B1F1EF"> 0.0 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 3.82 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFCB"> 0.19 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 4.19 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCB"> 0.17 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1298,8 +1298,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 1.152 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE3FB"> 1471.07 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFCB"> 0.37 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE3FB"> 1539.79 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCB"> 0.36 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1314,8 +1314,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B1F1EF"> 0.0 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 42.19 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFCB"> 0.06 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 30.37 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCB"> 0.08 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1331,8 +1331,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B1F1EF"> 0.0 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 5.22 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFCA"> 0.48 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 5.25 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCA"> 0.47 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1347,8 +1347,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 1.8432 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE2FA"> 1896.66 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFCA"> 0.46 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE2FA"> 1891.19 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCA"> 0.47 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1363,8 +1363,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B1F1EF"> 0.0 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 71.94 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFCB"> 0.13 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 99.40 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCB"> 0.09 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1380,7 +1380,7 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B1F1EF"> 0.0 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 6.38 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 6.37 <br/> (MB/s) </TD>
     <TD BGCOLOR = "#FFFFC8"> 1.48 <br/> (ms)</TD>
 </TR>
 </TABLE>>
@@ -1396,8 +1396,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B0F0EE"> 7.3728 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FDE2FA"> 2467.44 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFC8"> 1.43 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FDE1FA"> 2526.61 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC8"> 1.39 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1412,8 +1412,8 @@ digraph output {
 </TR>
 <TR>
     <TD BGCOLOR = "#B1F1EF"> 0.0 <br/> (MFLOPs) </TD>
-    <TD BGCOLOR = "#FEE4FB"> 120.49 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFFCB"> 0.31 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FEE4FB"> 126.70 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCB"> 0.29 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1430,7 +1430,7 @@ digraph output {
 <TR>
     <TD BGCOLOR = "#B1F1EF"> 0.0 <br/> (MFLOPs) </TD>
     <TD BGCOLOR = "#FFE5FC"> 0.50 <br/> (MB/s) </TD>
-    <TD BGCOLOR = "#FFFF0"> 77.74 <br/> (ms)</TD>
+    <TD BGCOLOR = "#FFFF0"> 77.72 <br/> (ms)</TD>
 </TR>
 </TABLE>>
  shape=plaintext]
@@ -1441,8 +1441,8 @@ digraph output {
 	Summary [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
 <TR><TD  BGCOLOR = "#C60000" COLSPAN="3">Summary</TD></TR>
 <TR><TD  BGCOLOR = "#E2E2E2" COLSPAN="3">12 SHV Processors</TD></TR>
-<TR><TD  BGCOLOR = "#DADADA" COLSPAN="3">Inference time 319.39 ms</TD></TR>
-<TR><TD  BGCOLOR = "#E2E2E2" COLSPAN="3">Bandwidth 445.11 MB/sec</TD></TR>
+<TR><TD  BGCOLOR = "#DADADA" COLSPAN="3">Inference time 319.44 ms</TD></TR>
+<TR><TD  BGCOLOR = "#E2E2E2" COLSPAN="3">Bandwidth 445.04 MB/sec</TD></TR>
 <TR><TD  BGCOLOR = "#DADADA" COLSPAN="3">This network is Compute bound</TD></TR>
 </TABLE>>
  shape=plaintext]
