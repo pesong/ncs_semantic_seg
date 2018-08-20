@@ -17,7 +17,6 @@ GRAPH_PATH = 'ncs_model/mobilenetv2.graph'
 IMAGE_PATH_ROOT = 'demo_test/CS/'
 IMAGE_DIM = [320, 480]
 
-
 # --------step1: open the device and get a handle to it--------------------
 # look for device
 devices = mvnc.EnumerateDevices()
@@ -56,6 +55,7 @@ for IMAGE_PATH in os.listdir(IMAGE_PATH_ROOT):
     # Mean subtraction & scaling [A common technique used to center the data]
     img = img.astype(numpy.float16)
     image_t = (img - numpy.float16(IMAGE_MEAN))
+    image_t = numpy.transpose(image_t, (2, 0, 1))
 
 # -----------step4: get result-------------------------------------------------
     graph.LoadTensor(image_t, 'user object')
@@ -64,7 +64,7 @@ for IMAGE_PATH in os.listdir(IMAGE_PATH_ROOT):
     out = graph.GetResult()[0]
 
     #  flatten ---> image
-    out = out.reshape(-1,2).T.reshape(2, 331, -1)
+    out = out.reshape(-1, 2).T.reshape(2, 331, -1)
     out = out.argmax(axis=0)
     out = out[6:-5, 6:-5]
 
