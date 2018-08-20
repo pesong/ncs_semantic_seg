@@ -50,7 +50,8 @@ fig.tight_layout()
 plt.subplots_adjust(left=0.04, top= 0.96, right = 0.96, bottom = 0.04, wspace = 0.01, hspace = 0.01)  # 调整子图间距
 plt.ion()
 
-
+i = 0
+start = time.time()
 for IMAGE_PATH in os.listdir(IMAGE_PATH_root):
 
     img_ori = Image.open(os.path.join(IMAGE_PATH_root, IMAGE_PATH))
@@ -76,8 +77,15 @@ for IMAGE_PATH in os.listdir(IMAGE_PATH_root):
     img_masked = Image.fromarray(vis.vis_seg(img_ori, out, voc_palette))
     # img_masked.save('demo_test/visualization.jpg')
 
-    plt.suptitle('MobilenetV2', fontsize=16)
 
+    i += 1
+    duration = time.time() - start
+    floaps = i / duration
+    print("time:{}, images_num:{}, floaps:{}".format(duration, i, floaps))
+
+
+    # draw picture
+    plt.suptitle('MobilenetV2-CPU', fontsize=16)
 
     plt.subplot(1, 2, 1)
     plt.title("orig image", fontsize=16)
@@ -92,7 +100,6 @@ for IMAGE_PATH in os.listdir(IMAGE_PATH_root):
     plt.imshow(img_masked)
 
     # plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.0)
-
 
     plt.pause(0.000001)
     plt.clf()

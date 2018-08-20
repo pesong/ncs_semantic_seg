@@ -36,8 +36,9 @@ with open(GRAPH_PATH, mode='rb') as f:
 graph = device.AllocateGraph(blob)
 
 # -------- step3: offload image into the ncs to run inference
-plt.figure(figsize=(18,12))
-subplots = 2
+fig = plt.figure(figsize=(18,12))
+fig.tight_layout()
+plt.subplots_adjust(left=0.04, top= 0.96, right = 0.96, bottom = 0.04, wspace = 0.01, hspace = 0.01)  # 调整子图间距
 plt.ion()
 
 i = 0
@@ -84,12 +85,14 @@ for IMAGE_PATH in os.listdir(IMAGE_PATH_ROOT):
     print("time:{}, images_num:{}, floaps:{}".format(duration, i, floaps))
 
 
-    # visualization
-    plt.subplot(1, subplots, 1)
+    # draw picture
+    plt.suptitle('MobilenetV2-movidius', fontsize=16)
+
+    plt.subplot(1, 2, 1)
     plt.title("orig image", fontsize=16)
     plt.imshow(img_ori)
 
-    plt.subplot(1, subplots, 2)
+    plt.subplot(1, 2, 2)
     plt.title("segmentation", fontsize=16)
     plt.imshow(img_masked)
 
