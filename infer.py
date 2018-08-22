@@ -25,36 +25,8 @@ WEIGHTS = 'weight_pretrained/inception_fcn4s_city_batch20.caffemodel'
 # load net
 net = caffe.Net(NET_PROTO, WEIGHTS, caffe.TEST)
 
-# ------------------1: handle image use numpy
 
-# load image, switch to BGR, subtract mean, and make dims C x H x W for Caffe
-# img = Image.open('demo_test/bicycle.jpg')
-# img = np.array(im, dtype=np.float32)
-# img = in_[:,:,::-1]
-# img -= np.array((104.00698793,116.66876762,122.67891434))
-# image_t = in_.transpose((2,0,1))
-#
-# # shape for input (data blob is N x C x H x W), set data
-# net.blobs['data'].data[...] = image_t
-
-# ------------------1: handle image use skimage(by ncs)
-
-# img_draw = skimage.io.imread(IMAGE_PATH)
-#
-# # Resize image [Image size is defined during training]
-# img = skimage.transform.resize(img_draw, IMAGE_DIM, preserve_range=True)
-#
-# # Convert RGB to BGR [skimage reads image in RGB, some networks may need BGR]
-# img = img[:, :, ::-1]
-#
-# # Mean subtraction & scaling [A common technique used to center the data]
-# img = img.astype(numpy.float16)
-# image_t = (img - numpy.float16(IMAGE_MEAN))
-# image_t = image_t.transpose((2,0,1))
-
-
-
-# # ---------------3: handle image use caffe
+# # ---------------1.  handle image use caffe-----------------------
 caffe_root = '/opt/movidius/caffe/'
 
 # load the mean ImageNet image (as distributed with Caffe) for subtraction
@@ -74,11 +46,7 @@ transformer.set_raw_scale('data', 255)      # rescale from [0, 1] to [0, 255]
 transformer.set_channel_swap('data', (2,1,0))  # swap channels from RGB to BGR
 
 
-
-
-
-
-# 2 画图
+# ------------------------------------2 画图--------------------
 fig = plt.figure(figsize=(20, 10))
 fig.tight_layout()
 plt.subplots_adjust(left=0.04, top= 0.96, right = 0.96, bottom = 0.04, wspace = 0.01, hspace = 0.01)  # 调整子图间距
