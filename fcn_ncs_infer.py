@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 import os
 import time
 
@@ -9,10 +11,9 @@ import mvnc.mvncapi as mvnc
 from utils import vis
 import matplotlib.pyplot as plt
 
-
 # input parameters
 IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
-GRAPH_PATH = 'ncs_model/Inception_fcn4s_city.graph'
+GRAPH_PATH = 'graph'
 IMAGE_PATH_ROOT = 'demo_test/CS/'
 IMAGE_DIM = [320, 480]
 

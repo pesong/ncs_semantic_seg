@@ -78,15 +78,17 @@ transformer.set_channel_swap('data', (2,1,0))  # swap channels from RGB to BGR
 
 
 
-# 画图
-#
-# plt.subplot(2,1,1)
-# plt.title('origin image')
+# 2 画图
+fig = plt.figure(figsize=(20, 10))
+fig.tight_layout()
+plt.subplots_adjust(left=0.04, top= 0.96, right = 0.96, bottom = 0.04, wspace = 0.01, hspace = 0.01)  # 调整子图间距
+plt.ion()
 
-
+i = 0
+start = time.time()
 for IMAGE_PATH in os.listdir(IMAGE_PATH_root):
 
-    img = Image.open(os.path.join(IMAGE_PATH_root, IMAGE_PATH))
+    img_ori = Image.open(os.path.join(IMAGE_PATH_root, IMAGE_PATH))
     image = caffe.io.load_image(os.path.join(IMAGE_PATH_root, IMAGE_PATH))
     image_t = transformer.preprocess('data', image)
 
@@ -98,21 +100,43 @@ for IMAGE_PATH in os.listdir(IMAGE_PATH_root):
     net.forward()
     out = net.blobs['upscore'].data[0]
     out = out.argmax(axis=0)
-    out = out[:-11, :-11]
+    out = out[6:-5, 6:-5]
 
-    # plt.imshow(out)
-    # plt.show()
 
-    # visualize segmentation in PASCAL VOC colors
+    # visualize segmentation
     voc_palette = vis.make_palette(2)
     out_im = Image.fromarray(vis.color_seg(out, voc_palette))
     iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
-    out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')
+    # out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')
+    img_masked = Image.fromarray(vis.vis_seg(img_ori, out, voc_palette))
+    # img_masked.save('demo_test/visualization.jpg')
 
-    masked_im = Image.fromarray(vis.vis_seg(img, out, voc_palette))
-    # plt.figure(1)
-    plt.imshow(masked_im)
-    plt.show()
-    time.sleep(0.1)
-    # plt.close(1)
-    masked_im.save('demo_test/visualization.jpg')
+
+    i += 1
+    duration = time.time() - start
+    floaps = i / duration
+    print("time:{}, images_num:{}, floaps:{}".format(duration, i, floaps))
+
+
+    # draw picture
+    plt.suptitle('Inception-CPU', fontsize=16)
+
+    plt.subplot(1, 2, 1)
+    plt.title("orig image", fontsize=16)
+    plt.xticks([])
+    plt.yticks([])
+    plt.imshow(img_ori)
+
+    plt.subplot(1, 2, 2)
+    plt.title("segmentation", fontsize=16)
+    plt.xticks([])
+    plt.yticks([])
+    plt.imshow(img_masked)
+
+    # plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.0)
+
+    plt.pause(0.000001)
+    plt.clf()
+
+plt.ioff()
+plt.show()
