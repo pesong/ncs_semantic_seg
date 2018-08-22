@@ -13,8 +13,8 @@ try:
 except:
     pass
 
-weights = 'weight_pretrained/mobilenet_v2.caffemodel'
-proto = 'weight_pretrained/mobilenet_v2_deploy.prototxt'
+weights = 'weight_pretrained/mobilenet_v2_ncs.caffemodel'
+proto = 'weight_pretrained/mobilenet_v2_ncs_deploy.prototxt'
 final_model_name = 'cityscapes_4s_mobilenet_v2'
 n_steps = 20000
 

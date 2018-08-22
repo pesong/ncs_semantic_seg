@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 import os
 import time
 
@@ -17,23 +19,36 @@ GRAPH_PATH = 'ncs_model/mobilenetv2.graph'
 IMAGE_PATH_ROOT = 'demo_test/CS/'
 IMAGE_DIM = [320, 480]
 
+
+# configure the NCS
+# ***************************************************************
+mvnc.global_set_option(mvnc.GlobalOption.RW_LOG_LEVEL, 2)
+
 # --------step1: open the device and get a handle to it--------------------
 # look for device
-devices = mvnc.EnumerateDevices()
+devices = mvnc.enumerate_devices()
 if len(devices) == 0:
     print("No devices found")
     quit()
 
+# Pick the first stick to run the network
 device = mvnc.Device(devices[0])
-device.OpenDevice()
+
+# Open the NCS
+device.open()
+
+# The graph file that was created with the ncsdk compiler
+graph_file_name = 'graph'
+
 
 # ---------step2: load a graph file into hte ncs device----------------------
-# read the graph file into a buffer
-with open(GRAPH_PATH, mode='rb') as f:
+# Load network graph file into memory
+with open(graph_file_name, mode='rb') as f:
     blob = f.read()
 
-# Load the graph buffer into the ncs
-graph = device.AllocateGraph(blob)
+# create and allocate the graph object
+graph = mvnc.Graph('graph')
+fifo_in, fifo_out = graph.allocate_with_fifos(device, blob)
 
 # -------- step3: offload image into the ncs to run inference
 fig = plt.figure(figsize=(18,12))
@@ -54,15 +69,15 @@ for IMAGE_PATH in os.listdir(IMAGE_PATH_ROOT):
     img = img[:, :, ::-1]
 
     # Mean subtraction & scaling [A common technique used to center the data]
-    img = img.astype(numpy.float16)
-    image_t = (img - numpy.float16(IMAGE_MEAN))
-    image_t = numpy.transpose(image_t, (2, 0, 1))
+    img = img.astype(numpy.float32)
+    image_t = (img - numpy.float32(IMAGE_MEAN))
+    # image_t = numpy.transpose(image_t, (2, 0, 1))
 
 # -----------step4: get result-------------------------------------------------
-    graph.LoadTensor(image_t, 'user object')
+    graph.queue_inference_with_fifo_elem(fifo_in, fifo_out, image_t, 'user object')
 
     # Get the results from NCS
-    out = graph.GetResult()[0]
+    out, userobj = fifo_out.read_elem()
 
     #  flatten ---> image
     out = out.reshape(-1, 2).T.reshape(2, 331, -1)
@@ -101,3 +116,10 @@ for IMAGE_PATH in os.listdir(IMAGE_PATH_ROOT):
 
 plt.ioff()
 plt.show()
+
+# Clean up the graph, device, and fifos
+fifo_in.destroy()
+fifo_out.destroy()
+graph.destroy()
+device.close()
+device.destroy()
