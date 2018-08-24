@@ -1,14 +1,12 @@
-#! /usr/bin/env python3
-
 import os
 import time
 
 import numpy
 import skimage.io
+import vis
 import skimage.transform
 from PIL import Image
 import mvnc.mvncapi as mvnc
-from utils import vis
 import matplotlib.pyplot as plt
 
 # input parameters
@@ -38,7 +36,7 @@ graph = device.AllocateGraph(blob)
 # -------- step3: offload image into the ncs to run inference
 fig = plt.figure(figsize=(20,10))
 fig.tight_layout()
-plt.subplots_adjust(left=0.04, top= 0.96, right = 0.96, bottom = 0.04, wspace = 0.01, hspace = 0.01)  # 调整子图间距
+plt.subplots_adjust(left=0.04, top= 0.96, right = 0.96, bottom = 0.04, wspace = 0.01, hspace = 0.01)
 plt.ion()
 
 i = 0
