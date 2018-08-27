@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 # input parameters
 IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
-GRAPH_PATH = '/dl/model/seg/caffe/ncs_fcns/ncs_model/Inception_fcn4s_city.graph'
+GRAPH_PATH = '/dl/model/seg/caffe/ncs_fcns/ncs_model/Inception_fcn4s_road_0827.graph'
 IMAGE_PATH_ROOT = '/dl/model/seg/caffe/ncs_fcns/demo_test/CS/'
 IMAGE_DIM = [320, 480]
 

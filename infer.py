@@ -18,7 +18,7 @@ IMAGE_DIM = [320, 480]
 
 NET_PROTO = 'deploy.prototxt'
 # WEIGHTS = 'fcn-alexnet-pascal.caffemodel'
-WEIGHTS = 'weight_pretrained/inception_fcn4s_city_batch20.caffemodel'
+WEIGHTS = 'snapshot/inception_fcn4s_road/solver_iter_100000.caffemodel'
 # WEIGHTS = 'weight_pretrained/bvlc_googlenet.caffemodel'
 
 

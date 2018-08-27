@@ -18,8 +18,14 @@ try:
 except:
     pass
 
-weights = 'snapshot/googlenet_8s_cityscapes/solver_iter_12000.caffemodel'
-proto = 'weight_pretrained/bvlc_googlenet_deploy.prototxt'
+# init train from scratch
+# weights = 'snapshot/googlenet_8s_cityscapes/solver_iter_12000.caffemodel'
+# proto = 'weight_pretrained/bvlc_googlenet_deploy.prototxt'
+
+# train from fine tune
+weights = 'weight_pretrained/inception_fcn4s_city_batch20.caffemodel'
+proto = 'weight_pretrained/inception_fcn4s_city_batch20_deploy.prototxt'
+
 final_model_name = 'cityscapes_4s_inception'
 n_steps = 20000
 
