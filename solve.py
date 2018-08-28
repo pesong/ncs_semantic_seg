@@ -44,3 +44,5 @@ val = np.loadtxt('/dl/data/cityscapes/cityscapes_ncs/val_test.txt', dtype=str)
 for _ in range(25):
     solver.step(4000)
     score.seg_tests(solver, False, val, layer='score')
+
+
