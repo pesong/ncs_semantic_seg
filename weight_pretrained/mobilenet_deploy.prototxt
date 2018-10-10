@@ -1,15 +1,15 @@
-layer {
-  name: "data"
-  type: "Python"
-  top: "data"
-  top: "label"
-  python_param {
-    module: "data_layers"
-    layer: "CityScapeSegDataLayer"
-    param_str: "{\'cityscape_dir\': \'/dl/data/cityscapes/cityscapes_ncs', \'batch_size\': 1, \'crop_size\': (320,480), \'seed\': 1337, \'split\': \'train\', \'mean\': (71.60167789, 82.09696889, 72.30608881)}"
-   }
-}
-
+name: "MOBILENET"
+#  transform_param {
+#    scale: 0.017
+#    mirror: false
+#    crop_size: 224
+#    mean_value: [103.94,116.78,123.68]
+#  }
+input: "data"
+input_dim: 1
+input_dim: 3
+input_dim: 224
+input_dim: 224
 layer {
   name: "conv1"
   type: "Convolution"
@@ -1953,51 +1953,21 @@ layer {
   bottom: "conv6/sep"
   top: "conv6/sep"
 }
-
-
-
-
 layer {
-  name: "score_32"
-  type: "Convolution"
+  name: "pool6"
+  type: "Pooling"
   bottom: "conv6/sep"
-  top: "score_32"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 2
-    kernel_size: 1
-  }
-}
-
-
-layer {
-  name: "upscore_16"
-  type: "Deconvolution"
-  bottom: "score_32"
-  top: "upscore_16"
-  param {
-    lr_mult: 0
-  }
-  convolution_param {
-    num_output: 2
-    bias_term: false
-    kernel_size: 4
-    stride: 2
-    pad: 1
+  top: "pool6"
+  pooling_param {
+    pool: AVE
+    global_pooling: true
   }
 }
 layer {
-  name: "score_16"
+  name: "fc7"
   type: "Convolution"
-  bottom: "conv5_5/sep"
-  top: "score_16"
+  bottom: "pool6"
+  top: "fc7"
   param {
     lr_mult: 1
     decay_mult: 1
@@ -2007,149 +1977,20 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 1000
     kernel_size: 1
+    weight_filler {
+      type: "msra"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
   }
 }
 layer {
-  name: "fuse_16"
-  type: "Eltwise"
-  bottom: "upscore_16"
-  bottom: "score_16"
-  top: "fuse_16"
-  eltwise_param {
-    operation: SUM
-  }
-}
-
-
-layer {
-  name: "upscore_8"
-  type: "Deconvolution"
-  bottom: "fuse_16"
-  top: "upscore_8"
-  param {
-    lr_mult: 0
-  }
-  convolution_param {
-    num_output: 2
-    bias_term: false
-    kernel_size: 4
-    stride: 2
-    pad: 1
-  }
-}
-layer {
-  name: "score_8"
-  type: "Convolution"
-  bottom: "conv4_1/sep"
-  top: "score_8"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 2
-    kernel_size: 1
-  }
-}
-
-layer {
-  name: "fuse_8"
-  type: "Eltwise"
-  bottom: "upscore_8"
-  bottom: "score_8"
-  top: "fuse_8"
-  eltwise_param {
-    operation: SUM
-  }
-}
-layer {
-  name: "upscore_4"
-  type: "Deconvolution"
-  bottom: "fuse_8"
-  top: "upscore_4"
-  param {
-    lr_mult: 0
-  }
-  convolution_param {
-    num_output: 2
-    bias_term: false
-    kernel_size: 4
-    stride: 2
-    pad: 1
-  }
-}
-
-
-layer {
-  name: "score_4"
-  type: "Convolution"
-  bottom: "conv3_1/sep"
-  top: "score_4"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 2
-    kernel_size: 1
-  }
-}
-layer {
-  name: "fuse_4"
-  type: "Eltwise"
-  bottom: "upscore_4"
-  bottom: "score_4"
-  top: "fuse_4"
-  eltwise_param {
-    operation: SUM
-  }
-}
-
-layer {
-  name: "upscore"
-  type: "Deconvolution"
-  bottom: "fuse_4"
-  top: "upscore"
-  param {
-    lr_mult: 0
-  }
-  convolution_param {
-    num_output: 2
-    bias_term: false
-    kernel_size: 15
-    stride: 4
-  }
-}
-
-layer {
-  name: "score"
-  type: "Crop"
-  bottom: "upscore"
-  bottom: "data"
-  top: "score"
-  crop_param {
-    axis: 2
-    offset: 0
-  }
-}
-layer {
-  name: "loss"
-  type: "SoftmaxWithLoss"
-  bottom: "score"
-  bottom: "label"
-  top: "loss"
-  loss_param {
-    ignore_label: 255
-    normalize: false
-  }
+  name: "prob"
+  type: "Softmax"
+  bottom: "fc7"
+  top: "prob"
 }

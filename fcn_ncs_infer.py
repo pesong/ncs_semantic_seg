@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 # input parameters
 IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
 
-GRAPH_PATH = 'ncs_model/mobilenetv2_fcn4s_test.graph'
+GRAPH_PATH = 'graph'
 IMAGE_PATH_ROOT = 'demo_test/CS/'
 IMAGE_DIM = [320, 480]
 
@@ -101,7 +101,7 @@ for IMAGE_PATH in os.listdir(IMAGE_PATH_ROOT):
 
 
     # draw picture
-    plt.suptitle('MobilenetV2-movidius', fontsize=16)
+    plt.suptitle('MobilenetV1-movidius', fontsize=16)
 
     plt.subplot(1, 2, 1)
     plt.title("orig image", fontsize=16)

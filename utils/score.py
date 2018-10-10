@@ -8,7 +8,7 @@ import sys
 from datetime import datetime
 from PIL import Image
 import sys
-sys.path.append('/opt/movidius/caffe/python')
+sys.path.append('/opt/movidius/ssd-caffe/python')
 
 def fast_hist(a, b, n):
     k = (a >= 0) & (a < n)

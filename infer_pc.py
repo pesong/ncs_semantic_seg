@@ -17,7 +17,9 @@ IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
 IMAGE_DIM = [320, 480]
 
 NET_PROTO = 'deploy.prototxt'
-WEIGHTS = 'snapshot/mobilenetv2_fcn4s_road/solver_iter_80.caffemodel'
+WEIGHTS = 'snapshot/mobilenetv1_fcn4s_road/solver_iter_2000.caffemodel'
+
+WEIGHTS = 'snapshot/mobilenetv1_fcn4s_road/mobilenetv1_fcn4s_road_iter_1000.caffemodel'
 
 
 # load net

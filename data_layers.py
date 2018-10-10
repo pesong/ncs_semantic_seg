@@ -1,7 +1,7 @@
 import os
 import cv2
 import sys
-sys.path.append('/opt/movidius/caffe/python')
+sys.path.append('/opt/movidius/ssd-caffe/python')
 import caffe
 import numpy as np
 from PIL import Image

@@ -1,6 +1,6 @@
 
 import sys
-sys.path.append('/home/pesong/tools/caffe/python')
+sys.path.append('/home/pesong/tools/ssd-caffe/python')
 
 import caffe
 from utils import score, surgery
@@ -19,17 +19,17 @@ except:
 # proto = 'weight_pretrained/mobilenet_v2_ncsV2_deploy.prototxt'
 
 # use out pretrained model
-weights = 'weight_pretrained/mobilenetv2_ncsV2_fcn4s_pretrained.caffemodel'
-proto = 'weight_pretrained/mobilenetv2_ncsV2_fcn4s_pretrained_deploy.prototxt'
+weights = 'weight_pretrained/mobilenet.caffemodel'
+proto = 'weight_pretrained/mobilenet_deploy.prototxt'
 
-final_model_name = 'mobilenetv2_fcn4s_road'
+final_model_name = 'mobilenetv1_fcn4s_road'
 n_steps = 20000
 
 # init
 caffe.set_device(0)
 caffe.set_mode_gpu()
 
-solver = caffe.SGDSolver('solver.prototxt')
+solver = caffe.get_solver('solver.prototxt')
 mobilenetv2_net = caffe.Net(proto, weights, caffe.TRAIN)
 surgery.transplant(solver.net, mobilenetv2_net)
 del mobilenetv2_net
