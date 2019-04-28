@@ -34,7 +34,7 @@ class CityScapeSegDataLayer(caffe.Layer):
         # config
         # params is a python dictionary with layer parameters.
         params = eval(self.param_str)
-        self.cityscape_dir = params['cityscape_dir']
+        self.data_dir = params['data_dir']
         self.batch_size = params['batch_size']
         self.split = params['split']
         self.mean = np.array(params['mean'])
@@ -50,7 +50,7 @@ class CityScapeSegDataLayer(caffe.Layer):
             raise Exception("Do not define a bottom.")
 
         # load indices for images and labels
-        split_f = '{}/{}.txt'.format(self.cityscape_dir, self.split)
+        split_f = '{}/{}.txt'.format(self.data_dir, self.split)
 
         self.folders = open(split_f, 'r').read().splitlines()
 
@@ -58,14 +58,10 @@ class CityScapeSegDataLayer(caffe.Layer):
         self.labellist = []
 
         path_imgs = self.folders[0]
-        for root, dirs, files in os.walk(path_imgs):
-            for dir in dirs:
-                for name in os.listdir(root + dir):
-                    if ('leftImg8bit' in name):
-                        name_label = name.replace('leftImg8bit', 'gtFine_labelIds')
-                        root_label = root.replace(self.folders[0], self.folders[1])
-                        self.imglist.append(root + dir + '/' + name)
-                        self.labellist.append(root_label + dir + '/' + name_label)
+        for name in os.listdir(path_imgs):
+            name_label = "gray_" + name.replace("jpg", "png")
+            self.imglist.append(os.path.join(path_imgs,name))
+            self.labellist.append(os.path.join(self.folders[1], name_label))
 
         # get list of image indexes.
         self.idx = 0  # current image
@@ -116,6 +112,7 @@ class CityScapeSegDataLayer(caffe.Layer):
         - transpose to channel x height x width order
         """
         im = Image.open(self.imglist[self.idx])
+        im = im.resize((self.cropsize[1], self.cropsize[0]),Image.ANTIALIAS)
         in_ = np.array(im, dtype=np.float32)
         in_ = in_[:, :, ::-1]
         in_ -= self.mean
@@ -130,21 +127,24 @@ class CityScapeSegDataLayer(caffe.Layer):
 
         # cityscapes  读取灰度图，对多分类进行相应的映射
         label = Image.open(self.labellist[self.idx])
+        label = label.resize((self.cropsize[1], self.cropsize[0]),Image.ANTIALIAS)
         label = np.array(label, dtype=np.uint8)
+        label = label.transpose((2, 0, 1))
+        label = label[0:1, :, :]
         label = label[np.newaxis, ...]
 
-        label_road = np.all(label == [7], axis=0)
-        label_bg = np.any(label != [7], axis=0)
+        # label_road = np.all(label == [7], axis=0)
+        # label_bg = np.any(label != [7], axis=0)
 
-        label_all = np.dstack([label_bg, label_road])
-        label_all = label_all.astype(np.float32)
-        label_all = label_all.transpose((2, 0, 1))
-        label_all = label_all[0]
+        # label_all = np.dstack([label_bg, label_road])
+        # label_all = label_all.astype(np.float32)
+        # label_all = label_all.transpose((2, 0, 1))
+        # label_all = label_all[0]
 
-        # plt.imshow(label_all)
-        # plt.show()
+        # # plt.imshow(label_all)
+        # # plt.show()
 
-        label = label_all[np.newaxis, ...]
+        # label = label_all[np.newaxis, ...]
         return label
 
 
