@@ -131,7 +131,6 @@ class CityScapeSegDataLayer(caffe.Layer):
         label = np.array(label, dtype=np.uint8)
         label = label.transpose((2, 0, 1))
         label = label[0:1, :, :]
-        label = label[np.newaxis, ...]
 
         # label_road = np.all(label == [7], axis=0)
         # label_bg = np.any(label != [7], axis=0)
