@@ -6,7 +6,7 @@ layer {
   python_param {
     module: "data_layers"
     layer: "CityScapeSegDataLayer"
-    param_str: "{\'cityscape_dir\': \'/dl/data/cityscapes/cityscapes_ncs', \'batch_size\': 1, \'crop_size\': (320,480), \'seed\': 1337, \'split\': \'train\', \'mean\': (71.60167789, 82.09696889, 72.30608881)}"
+    param_str: "{\'data_dir\': \'/dl/data/floor_seg', \'batch_size\': 1, \'crop_size\': (320,480), \'seed\': 1337, \'split\': \'train\', \'mean\': (71.60167789, 82.09696889, 72.30608881)}"
    }
 }
 
@@ -3552,7 +3552,7 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 11
     kernel_size: 1
   }
 }
@@ -3565,7 +3565,7 @@ layer {
     lr_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 11
     bias_term: false
     kernel_size: 4
     stride: 2
@@ -3588,7 +3588,7 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 11
     kernel_size: 1
   }
 }
@@ -3613,7 +3613,7 @@ layer {
     lr_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 11
     bias_term: false
     kernel_size: 4
     stride: 2
@@ -3638,7 +3638,7 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 11
     kernel_size: 1
   }
 }
@@ -3662,7 +3662,7 @@ layer {
     lr_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 11
     bias_term: false
     kernel_size: 4
     stride: 2
@@ -3686,7 +3686,7 @@ layer {
     decay_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 11
     kernel_size: 1
   }
 }
@@ -3710,7 +3710,7 @@ layer {
     lr_mult: 0
   }
   convolution_param {
-    num_output: 2
+    num_output: 11
     bias_term: false
     kernel_size: 15
     stride: 4

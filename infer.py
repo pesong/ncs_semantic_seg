@@ -11,13 +11,13 @@ import matplotlib.pyplot as plt
 from utils import vis
 
 # define parameters
-IMAGE_PATH_root = 'demo_test/CS'
+IMAGE_PATH_root = 'demo_test/gaussian'
 
 IMAGE_MEAN = [71.60167789, 82.09696889, 72.30608881]
 IMAGE_DIM = [320, 480]
 
 NET_PROTO = 'deploy.prototxt'
-WEIGHTS = 'snapshot/mobilenetv2_fcn4s_road/solver_iter_80.caffemodel'
+WEIGHTS = 'snapshot/mobilenetv2_fcn4s_road_iter_22000.caffemodel'
 
 
 # load net
@@ -55,6 +55,7 @@ start = time.time()
 for IMAGE_PATH in os.listdir(IMAGE_PATH_root):
 
     img_ori = Image.open(os.path.join(IMAGE_PATH_root, IMAGE_PATH))
+    img_ori = img_ori.resize((480, 320),Image.ANTIALIAS)
     image = caffe.io.load_image(os.path.join(IMAGE_PATH_root, IMAGE_PATH))
     image_t = transformer.preprocess('data', image)
 
@@ -70,7 +71,7 @@ for IMAGE_PATH in os.listdir(IMAGE_PATH_root):
 
 
     # visualize segmentation
-    voc_palette = vis.make_palette(2)
+    voc_palette = vis.make_palette(11)
     out_im = Image.fromarray(vis.color_seg(out, voc_palette))
     iamge_name = IMAGE_PATH.split('/')[-1].rstrip('.jpg')
     # out_im.save('demo_test/' + iamge_name + '_pc_' + '.png')
